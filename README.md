@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Brewery App 
+![Alt Text](https://i.imgur.com/FagxFB2.gif)
 
-## Available Scripts
+## Project Description
 
-In the project directory, you can run:
+The goal of our app is to create a brewery finder and beer rater for beer lovers. A user can add a rating of a brewery they find on the brewery list if they have visited the brewery. Users can also add a brewery to there personal profile. Within a users profile a user can add their favorite brewery to a favorite brewery list, add any brewery a user has visited to their visited brewery list and a user could also add future brewery's they want to visit to a want to visit brewery list. 
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 
+## Project Links
+Below are links to navigate to our project repository and deployed website link. 
+- GitHub Repo = [Brewery App Repo](https://github.com/JGeorgos24/Brewery-App)
+- Deployment = [Deployed Brewery App](https://github.com/JGeorgos24/Brewery-App) 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Wireframes
+Insert wired frames
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## User Stories
+Below are links to navigate to our project repository and deployed website link. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### MVP/PostMVP 
+The functionality of our website will be broken down into separate list: MVP and Post MVP. MVP will be the minimum viable product our client expects to see out of our website. Post MVP will be any additional product we can add to our website to improve functionality and styling.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### MVP for Brewery App
+- A front-end React application that updates the UI and makes requests to the API.
+- Include data from a third-party API. In our case we would use a brewery API. 
+- Create a GitHub Repo with all project members as collaborators.
+- Establish a gitwork flow so all collaborators can save and upload properly.  
+- Have a header with website title and signup/login features.
+- Construct a nav bar to navigate to brewery list page, brewery's near you, and a users profile. 
+- Use react-router and react-router-dom to navigate to different link/pages. 
+- Use axios to get a API request.
+- Allow uses to add beers and breweries to their users profile. 
+- Filter breweries based on geographical location. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### PostMVP for Brewery App
+- To be Continued…
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Code Snippet
+Use this section to include a brief code snippet of functionality that we are proud of an a brief description. 
+ 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+Code Snippet
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
