@@ -8,6 +8,7 @@ import Header from './components/Header';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Profile from './components/Profile';
+import Home from './components/Home';
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
 
@@ -76,7 +77,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <Header {...this.state}/>
         <main>
           <Route path="/signup" 
                  render={ (props) => {
@@ -96,6 +97,10 @@ class App extends Component {
                 render={ (props) => {
                   return <Profile {...this.state} />
                 }} />
+          {/* <Route path="/"
+                render={ (props) => {
+                  return <Home {...this.state} />
+                }} /> */}
         </main>
       </div>
     );

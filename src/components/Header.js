@@ -1,13 +1,11 @@
 import React from 'react';
+import Home from './Home'
 
-import { Link } from 'react-router-dom';
-
-function Header() {
+function Header(props) {
     return (
         <header>
             <h1>CervezApp</h1>
-            <Link to="/signup">Sign Up</Link>
-            <Link to="/login">Login</Link>
+            <Home {...props}/>
         </header>
     )
 }
