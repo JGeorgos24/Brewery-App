@@ -7,6 +7,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Header from './components/Header';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
+import Profile from './components/Profile';
 
 const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
 
@@ -23,7 +24,8 @@ class App extends Component {
         password: "password"
       }],
       loggedIn: false,
-      error: ""
+      error: "",
+      loggedInUser: {}
     }
   }
 
@@ -49,9 +51,10 @@ class App extends Component {
     if(filteredUser.length > 0) {
       this.setState({
         loggedIn: true,
-        error: ""
+        error: "",
+        loggedInUser: filteredUser
       })
-      this.props.history.push('/');
+      this.props.history.push('/profile');
     } else {
       this.setState({
         error: "Incorrect Credentials"
@@ -89,6 +92,10 @@ class App extends Component {
                             {...this.state} />
                  }} 
           />
+          <Route path="/profile"
+                render={ (props) => {
+                  return <Profile {...this.state} />
+                }} />
         </main>
       </div>
     );
