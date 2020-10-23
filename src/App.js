@@ -15,8 +15,18 @@ class App extends Component {
     super();
     
     this.state = {
-      breweries: ""
+      breweries: "",
+      users: []
     }
+  }
+
+  handleSubmit = (e, userInfo) => {
+    e.preventDefault();
+    const users = this.state.users;
+    users.push(userInfo);
+    this.setState({
+      users: users
+    })
   }
 
   async componentDidMount() {
@@ -31,12 +41,15 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.breweries);
     return (
       <div className="App">
         <Header />
         <main>
-          <Route path="/signup" component={SignUp} />
+          <Route path="/signup" 
+                 render={ (props) => {
+                   return <SignUp handleSubmit={this.handleSubmit} {...this.state} />
+                 }}
+          />
           <Route path="/login" component={Login} />
         </main>
       </div>

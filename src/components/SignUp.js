@@ -12,13 +12,17 @@ class SignUp extends Component {
         }
     }
 
-    
+    updateForm = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
 
     render() {
         return (
             <header>
                 <h1>Sign Up Page</h1>
-                <form>
+                <form onSubmit={(e) => this.props.handleSubmit(e, this.state)}>
                     <input
                         type="text"
                         name="name"
@@ -27,7 +31,7 @@ class SignUp extends Component {
                         onChange={this.updateForm}
                     />
                     <input
-                        type="text"
+                        type="number"
                         name="age"
                         placeholder="Better be over 21"
                         value={this.state.age}
@@ -47,7 +51,7 @@ class SignUp extends Component {
                         value={this.state.password}
                         onChange={this.updateForm}
                     />
-                    <imput type="submit" value="Create Profile" />
+                    <input type="submit" value="Create Profile" />
                 </form>
             </header>
         )
