@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import axios from 'axios';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
+
+// let upvote = Math.floor(Math.random() * 100);
+
+class App extends Component {
+  constructor() {
+    super();
+    
+    this.state = {
+      breweries: ""
+    }
+  }
+
+  async componentDidMount() {
+    const resp = await axios.get(url);
+    for(let i=0; i < resp.data.length; i++) {
+      let upvote = Math.floor(Math.random() * 100);
+      resp.data[i].upvotes = upvote;
+    }
+    this.setState({
+      breweries: resp.data
+    })
+  }
+
+  render() {
+    console.log(this.state.breweries);
+    return (
+      <div className="App">
+        <h1>Hello World</h1>
+      </div>
+    );
+  }
 }
 
 export default App;
