@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 
-const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
+import { Route } from 'react-router-dom';
 
-// let upvote = Math.floor(Math.random() * 100);
+import Header from './components/Header';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
+
+const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
 
 class App extends Component {
   constructor() {
@@ -30,7 +34,11 @@ class App extends Component {
     console.log(this.state.breweries);
     return (
       <div className="App">
-        <h1>Hello World</h1>
+        <Header />
+        <main>
+          <Route path="/signup" component={SignUp} />
+          <Route path="/login" component={Login} />
+        </main>
       </div>
     );
   }
