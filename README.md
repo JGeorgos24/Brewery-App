@@ -22,16 +22,16 @@ Inserted below is a navigational link to a PDF slideshow of our wireframes for o
 
 ## User Stories
 Below are links to navigate to our project repository and deployed website link. 
-	1. As a user I want to be able to access the CervezApp website if I have the correct website URL. 
-	2. As a unregister user I want to be able to sign up and create my own CervezApp user profile.
-	3. As a registered user I want to be able to login to the CervezApp website with my username and password. 
-	4. As a registered user I want the CervezApp to tell me if I logged in with an incorrect username and/or password.
-	5. As a user I want to be able to render a list of breweries. 
-	6. As a user I want to be able to filter through breweries by the breweries state/city location.
-	7. As a registered user I want to be able to add breweries to my brewery profile page. 
-	8. As a registered user I want to be able to render my brewery profile page to see my brewery list. 
-	9. As a registered user I want to be able to render my beer profile page to see my beers list.
-	10. As a user I want to be able to sign out of my CervazApp.
+1. As a user I want to be able to access the CervezApp website if I have the correct website URL. 
+2. As a unregister user I want to be able to sign up and create my own CervezApp user profile.
+3. As a registered user I want to be able to login to the CervezApp website with my username and password. 
+4. As a registered user I want the CervezApp to tell me if I logged in with an incorrect username and/or password.
+5. As a user I want to be able to render a list of breweries. 
+6. As a user I want to be able to filter through breweries by the breweries state/city location.
+7. As a registered user I want to be able to add breweries to my brewery profile page. 
+8. As a registered user I want to be able to render my brewery profile page to see my brewery list. 
+9. As a registered user I want to be able to render my beer profile page to see my beers list.
+10. As a user I want to be able to sign out of my CervazApp.
 	
 
 ### MVP/PostMVP 
