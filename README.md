@@ -16,7 +16,8 @@ Below are links to navigate to our project repository and deployed website link.
 
 
 ## Wireframes
-Insert wired frames
+Inserted below is a navigational link to a PDF slideshow of our wireframes for our project.
+- Wireframes and Website Architecture = [Brewery App Wireframes](https://docs.google.com/presentation/d/e/2PACX-1vQGhbN6tlgpTGiFedmoJlix-uZPbPT5lukzV21qcrfIY3eh_koXkil23hUqVGZH_5tiqkTe4BVSiRz4/pub?start=true&loop=true&delayms=5000)
 
 
 ## User Stories
@@ -35,11 +36,16 @@ The functionality of our website will be broken down into separate list: MVP and
 - Use react-router and react-router-dom to navigate to different link/pages. 
 - Use axios to get a API request.
 - Allow uses to add beers and breweries to their users profile. 
-- Filter breweries based on geographical location. 
+- Filter breweries based on breweries geographical location. 
 
 
 #### PostMVP for Brewery App
-- To be Continued…
+- Add drinking games to the app to play.
+- Search feature to search for specific brewery and/or beers. 
+- Incorporate Google Maps. 
+- Improve CSS styling. 
+
+
 
 ## Code Snippet
 Use this section to include a brief code snippet of functionality that we are proud of an a brief description. 
