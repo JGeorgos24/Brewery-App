@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import axios from 'axios';
 
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 
 import Header from './components/Header';
 import SignUp from './components/SignUp';
@@ -16,17 +16,47 @@ class App extends Component {
     
     this.state = {
       breweries: "",
-      users: []
+      users: [{
+        name: "Random User",
+        age: 0,
+        username: "username",
+        password: "password"
+      }],
+      loggedIn: false,
+      error: ""
     }
   }
 
-  handleSubmit = (e, userInfo) => {
+  handleSignup = (e, userInfo) => {
     e.preventDefault();
     const users = this.state.users;
     users.push(userInfo);
     this.setState({
       users: users
     })
+    this.props.history.push('/');
+  }
+
+  handleLogin = (e, userInfo) => {
+    e.preventDefault();
+    const users = this.state.users;
+    console.log(userInfo);
+    const filteredUser = users.filter(
+      user => {
+        return user.username === userInfo.username && user.password === userInfo.password
+      }
+    )
+    if(filteredUser.length > 0) {
+      this.setState({
+        loggedIn: true,
+        error: ""
+      })
+      this.props.history.push('/');
+    } else {
+      this.setState({
+        error: "Incorrect Credentials"
+      })
+    }
   }
 
   async componentDidMount() {
@@ -47,14 +77,22 @@ class App extends Component {
         <main>
           <Route path="/signup" 
                  render={ (props) => {
-                   return <SignUp handleSubmit={this.handleSubmit} {...this.state} />
+                   return <SignUp 
+                            handleSignup={this.handleSignup} 
+                            {...this.state} />
                  }}
           />
-          <Route path="/login" component={Login} />
+          <Route path="/login" 
+                 render={ (props) => {
+                   return <Login 
+                            handleLogin={this.handleLogin} 
+                            {...this.state} />
+                 }} 
+          />
         </main>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
