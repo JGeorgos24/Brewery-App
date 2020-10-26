@@ -26,13 +26,66 @@ class App extends Component {
         name: "Random User",
         age: 0,
         username: "username",
-        password: "password"
-      }],
+        password: "password",
+        userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+      ]
+        }],
       loggedIn: false,
       error: "",
-      loggedInUser: {}
+      loggedInUser: {
+        name: "Random User",
+        age: 0,
+        username: "username",
+        password: "password",
+        userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+      ]
+      }
     }
   }
+
+handleAdd = (brewId) => {
+    const user = this.state.loggedInUser
+    user.userBrews.push(this.state.breweries[brewId])
+    console.log(this.state.breweries[brewId])
+    this.setState({
+        loggedInUser: user
+    }) 
+    this.props.history.push('/profile/breweries');
+}
+
+  handleRemove = (brewId) => {
+    const userBrews = this.state.loggedInUser.userBrews;
+    const newBrews1 = userBrews.slice(0, brewId)
+    const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
+    const both = newBrews1.concat(newBrews2)
+    const user = this.state.loggedInUser
+    user.userBrews = both
+    console.log(newBrews1)
+    this.setState({
+        loggedInUser: user
+    })
+
+}
 
   handleSignup = (e, userInfo) => {
     e.preventDefault();
@@ -81,6 +134,7 @@ class App extends Component {
   // }
 
   async componentDidMount() {
+    
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
       let upvote = Math.floor(Math.random() * 100);
@@ -92,6 +146,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
         <Header {...this.state}/>
@@ -114,13 +169,13 @@ class App extends Component {
 
           <Route path="/profile"
                 render={ (props) => {
-                  return <Profile {...this.state} />
+                  return <Profile {...this.state} handleRemove = {this.handleRemove}/>
                 }} 
           />
 
           <Route path="/BreweryList"
             render={ (props) => {
-              return <BreweryContainer {...this.props} {...this.state} /> 
+              return <BreweryContainer {...this.props} {...this.state} handleAdd = {this.handleAdd} /> 
             }} 
           />
 

@@ -9,31 +9,22 @@ class Profile extends Component {
         super(props)
 
         this.state={
-            userBrews: [
-                {
-                    name: 'Avendale Beer Company',
-                    city: 'Birmingham',
-                    state: 'Alabama'
-                },
-                {
-                    name: 'bbbb',
-                    city: 'bbbbb',
-                    state: 'bbbbb'
-                }
-            ],
+            // userBrews: [
+            //     {
+            //         name: 'Avendale Beer Company',
+            //         city: 'Birmingham',
+            //         state: 'Alabama'
+            //     },
+            //     {
+            //         name: 'bbbb',
+            //         city: 'bbbbb',
+            //         state: 'bbbbb'
+            //     }
+            // ],
         }
     }
 
-    handleRemove = (brewId) => {
-        const userBrews = this.state.userBrews;
-        const newBrews1 = userBrews.slice(0, brewId)
-        const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
-        const both = newBrews1.concat(newBrews2)
-        this.setState({
-            userBrews: both
-        })
-
-    }
+    
 
     render () {
         console.log(this.props)
@@ -47,7 +38,7 @@ class Profile extends Component {
                 </nav>
                 <Route path="/profile/breweries"
                     render={ (props) => {
-                        return <ProfileBreweryContainer {...this.props} {...this.state} handleRemove={this.handleRemove} /> 
+                        return <ProfileBreweryContainer {...this.props} {...this.state} handleRemove={this.props.handleRemove} /> 
                 }} />
             </div>
             

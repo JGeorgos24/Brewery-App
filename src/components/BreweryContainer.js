@@ -58,12 +58,12 @@ class BreweryContainer extends Component{
                     {/* {this.state.breweries.map((breweries, id) => {
                             return <BreweryList breweries={breweries} key={id} />
                     })} */}
-                    {this.state.breweries.map((breweries) => (
+                    {this.state.breweries.map((breweries, id) => (
                         breweries.name.toLowerCase().includes(this.state.search) ||
                         breweries.state.toLowerCase().includes(this.state.search) ||
                         breweries.city.toLowerCase().includes(this.state.search)
                          ?
-                        <BreweryList breweries={breweries} />
+                        <BreweryList breweries={breweries} handleAdd={this.props.handleAdd} brewId={id}/>
                         : null
                     ))}
                 </div>

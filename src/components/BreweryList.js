@@ -23,7 +23,7 @@ class BreweryList extends Component{
                 <p>{this.props.breweries.city}, {this.props.breweries.state}</p>
                 <p>Phone: {this.props.breweries.phone}</p>
                 Website:<a href={this.props.breweries.website_url} target="_blank">{this.props.breweries.name}</a>
-                
+                <button onClick={() => this.props.handleAdd(this.props.brewId)}>Add to Favorite Breweries</button>
             </div>
         )
     }
