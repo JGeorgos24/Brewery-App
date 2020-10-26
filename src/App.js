@@ -12,6 +12,7 @@ import Home from './components/Home';
 import BreweryList from './components/BreweryList';
 import BreweryNearYou from "./components/BreweryNearYou";
 import BreweryContainer from "./components/BreweryContainer";
+import ProfileBreweries from './components/ProfileBreweries';
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
 
@@ -128,10 +129,7 @@ class App extends Component {
               return <BreweryContainer {...this.props} {...this.state}  /> 
             }} 
           />
-
-
-
-          
+  
         </main>
       </div>
     );
