@@ -123,7 +123,7 @@ class App extends Component {
 
           <Route path="/BreweryNearYou"
             render={ (props) => {
-              return <BreweryNearYou {...this.state}  /> 
+              return <BreweryContainer {...this.props} {...this.state}  /> 
             }} 
           />
 
