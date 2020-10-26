@@ -34,7 +34,7 @@ a {
 .BreweryContainer{
   display:flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
