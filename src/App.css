@@ -6,4 +6,36 @@ a {
   margin: 10px;
 }
 
+.BreweriesList{
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  width: 300px;
+  height: 250px;
+  margin: 10px;
+  border: 2px solid black;
+}
 
+.BreweryName{
+  display: inline-block;
+  width: 280px;
+  margin: 10px;
+}
+
+.BreweryStreet, .BreweryAddress, .BreweryPhone, .BreweryWebsite{
+  margin: 5px;
+}
+
+.BreweryWebsite{
+  display: inline-block;
+}
+
+.BreweryContainer{
+  display:flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
