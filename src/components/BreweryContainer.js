@@ -43,18 +43,37 @@ class BreweryContainer extends Component{
                 </form>
                 {this.props.flag ? 
                     <div>
-                        {this.props.breweries.map((breweries) => (
+                         {this.state.breweries.map((breweries, id) => (
                             breweries.name.toLowerCase().includes(this.state.search) ||
                             breweries.state.toLowerCase().includes(this.state.search) ||
                             breweries.city.toLowerCase().includes(this.state.search)
                             ?
-                            <BreweryList breweries={breweries} />
+                            <BreweryList breweries={breweries} handleAdd={this.props.handleAdd} brewId={id}/>
                             : null
                         ))}
                     </div>
                 :
                     <div></div>
                 }                   
+                {/* <div> */}
+                    {/* {this.state.breweries.map((breweries, id) => {
+                            return <BreweryList breweries={breweries} key={id} />
+                    })} */}
+                    {/* {this.state.breweries.map((breweries, id) => (
+                        breweries.name.toLowerCase().includes(this.state.search) ||
+                        breweries.state.toLowerCase().includes(this.state.search) ||
+                        breweries.city.toLowerCase().includes(this.state.search)
+                         ?
+                        <BreweryList breweries={breweries} handleAdd={this.props.handleAdd} brewId={id}/>
+                        : null
+                    ))}
+                </div> */}
+                {/* <div>
+                    {this.state.breweries.map((breweries, id) => {
+                        return <BreweryNearYou breweries={breweries} key={id} brewId={id} />
+                    })}
+                </div> */}
+                   
             </div>
         )
     }
