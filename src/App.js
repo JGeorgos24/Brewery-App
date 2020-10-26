@@ -123,7 +123,6 @@ handleAdd = (brewId) => {
   }
 
   async renderAllBreweries() {
- 
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
       let upvote = Math.floor(Math.random() * 100);
