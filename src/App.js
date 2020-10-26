@@ -66,6 +66,17 @@ class App extends Component {
     }
   }
 
+  // renderAllBreweries = () => {
+  //   const resp = await axios.get(AllBreweriesURL);
+  //   for(let i=0; i < resp.data.length; i++) {
+  //     let upvote = Math.floor(Math.random() * 100);
+  //     resp.data[i].upvotes = upvote;
+  //   }
+  //   this.setState({
+  //     breweries: resp.data
+  //   })
+  // }
+
   async componentDidMount() {
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
