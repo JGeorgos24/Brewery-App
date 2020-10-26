@@ -10,7 +10,8 @@ class BreweryContainer extends Component{
         super(props);
 
         this.state={
-            breweries:[]
+            breweries:[],
+            search: ''
         }
     }
 
@@ -28,27 +29,43 @@ class BreweryContainer extends Component{
 
     onChange = (event) => {
         event.preventDefault();
+        // const breweries = this.state.breweries;
+        // breweries.filter(brewery => {
+
+        // })
         this.setState({
-            [event.target.name]: event.target.value
+            // [event.target.name]: event.target.value
+            search: event.target.value.toLowerCase()
         })
     }
 
+   
+
     render() {
-    console.log(this.state)
+    console.log(this.state.breweries)
         return(
             <div className="BreweryContainer">  
                 <form>
-                    <input
+                    <input className = 'search'
                     type = 'text'
                     name = 'state'
-                    placeholder = 'State'
+                    placeholder = 'Search by Brewery, City, or State'
                     onChange = {this.onChange}
                     />
+                 
                 </form>
                 <div>
-                    {this.state.breweries.map((breweries, id) => {
+                    {/* {this.state.breweries.map((breweries, id) => {
                             return <BreweryList breweries={breweries} key={id} />
-                    })}
+                    })} */}
+                    {this.state.breweries.map((breweries) => (
+                        breweries.name.toLowerCase().includes(this.state.search) ||
+                        breweries.state.toLowerCase().includes(this.state.search) ||
+                        breweries.city.toLowerCase().includes(this.state.search)
+                         ?
+                        <BreweryList breweries={breweries} />
+                        : null
+                    ))}
                 </div>
                 {/* <div>
                     {this.state.breweries.map((breweries, id) => {

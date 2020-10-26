@@ -22,7 +22,7 @@ class BreweryNearYou extends Component{
     // }
 
     render(){
-        console.log(this.props.breweries);
+        // console.log(this.props.breweries);
         return(
             <div>
                 <h1> Breweries Near You</h1>
@@ -34,7 +34,7 @@ class BreweryNearYou extends Component{
                     onChange = {this.onChange}
                     />
                 </form> */}
-                {this.props.breweries.name}
+                {/* {this.props.breweries.name} */}
                 {/* {this.props.breweries.map((brewery, index) => {
                     return <h3>{brewery.name}</h3>
                 })} */}
