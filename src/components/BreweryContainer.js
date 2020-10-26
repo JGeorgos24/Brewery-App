@@ -9,22 +9,9 @@ class BreweryContainer extends Component{
     constructor(props){
         super(props);
 
-        this.state={
-            breweries:[],
-            search: ''
-        }
-    }
-
-    async componentDidMount() {
-        const resp = await axios.get(AllBreweriesURL);
-        for(let i=0; i < resp.data.length; i++) {
-          let upvote = Math.floor(Math.random() * 100);
-          resp.data[i].upvotes = upvote;
-        }
-        this.setState({
-          breweries: resp.data
+        this.state = ({
+            search: ""
         })
-        console.log(resp)
     }
 
     onChange = (event) => {
@@ -42,7 +29,7 @@ class BreweryContainer extends Component{
    
 
     render() {
-    console.log(this.state.breweries)
+    console.log(this.props)
         return(
             <div className="BreweryContainer">  
                 <form>
@@ -54,25 +41,20 @@ class BreweryContainer extends Component{
                     />
                  
                 </form>
-                <div>
-                    {/* {this.state.breweries.map((breweries, id) => {
-                            return <BreweryList breweries={breweries} key={id} />
-                    })} */}
-                    {this.state.breweries.map((breweries) => (
-                        breweries.name.toLowerCase().includes(this.state.search) ||
-                        breweries.state.toLowerCase().includes(this.state.search) ||
-                        breweries.city.toLowerCase().includes(this.state.search)
-                         ?
-                        <BreweryList breweries={breweries} />
-                        : null
-                    ))}
-                </div>
-                {/* <div>
-                    {this.state.breweries.map((breweries, id) => {
-                        return <BreweryNearYou breweries={breweries} key={id} brewId={id} />
-                    })}
-                </div> */}
-                   
+                {this.props.flag ? 
+                    <div>
+                        {this.props.breweries.map((breweries) => (
+                            breweries.name.toLowerCase().includes(this.state.search) ||
+                            breweries.state.toLowerCase().includes(this.state.search) ||
+                            breweries.city.toLowerCase().includes(this.state.search)
+                            ?
+                            <BreweryList breweries={breweries} />
+                            : null
+                        ))}
+                    </div>
+                :
+                    <div></div>
+                }                   
             </div>
         )
     }

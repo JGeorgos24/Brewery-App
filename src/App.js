@@ -28,6 +28,7 @@ class App extends Component {
         password: "password"
       }],
       loggedIn: false,
+      flag: false,
       error: "",
       loggedInUser: {}
     }
@@ -53,7 +54,6 @@ class App extends Component {
         return user.username === userInfo.username && user.password === userInfo.password
       }
     )
-    // console.log(filteredUser)
     if(filteredUser.length > 0) {
       this.setState({
         loggedIn: true,
@@ -68,26 +68,20 @@ class App extends Component {
     }
   }
 
-  // renderAllBreweries = () => {
-  //   const resp = await axios.get(AllBreweriesURL);
-  //   for(let i=0; i < resp.data.length; i++) {
-  //     let upvote = Math.floor(Math.random() * 100);
-  //     resp.data[i].upvotes = upvote;
-  //   }
-  //   this.setState({
-  //     breweries: resp.data
-  //   })
-  // }
-
-  async componentDidMount() {
+  async renderAllBreweries() {
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
       let upvote = Math.floor(Math.random() * 100);
       resp.data[i].upvotes = upvote;
     }
     this.setState({
-      breweries: resp.data
+      breweries: resp.data,
+      flag: true
     })
+  }
+
+  componentDidMount() {
+    this.renderAllBreweries();
   }
 
   render() {
@@ -119,7 +113,11 @@ class App extends Component {
 
           <Route path="/BreweryList"
             render={ (props) => {
-              return <BreweryContainer {...this.props} {...this.state} /> 
+              return <BreweryContainer 
+                      renderAllBreweries={this.renderAllBreweries} 
+                      breweries={this.state.breweries}
+                      {...this.props} 
+                      {...this.state} /> 
             }} 
           />
 
