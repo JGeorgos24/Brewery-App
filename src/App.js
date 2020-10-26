@@ -9,8 +9,11 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import Home from './components/Home';
+import BreweryList from './components/BreweryList';
+import BreweryNearYou from "./components/BreweryNearYou";
+import BreweryContainer from "./components/BreweryContainer";
 
-const url = "https://api.openbrewerydb.org/breweries?by_city=decorah&per_page=50";
+const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
 
 class App extends Component {
   constructor() {
@@ -63,8 +66,19 @@ class App extends Component {
     }
   }
 
+  // renderAllBreweries = () => {
+  //   const resp = await axios.get(AllBreweriesURL);
+  //   for(let i=0; i < resp.data.length; i++) {
+  //     let upvote = Math.floor(Math.random() * 100);
+  //     resp.data[i].upvotes = upvote;
+  //   }
+  //   this.setState({
+  //     breweries: resp.data
+  //   })
+  // }
+
   async componentDidMount() {
-    const resp = await axios.get(url);
+    const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
       let upvote = Math.floor(Math.random() * 100);
       resp.data[i].upvotes = upvote;
@@ -86,6 +100,7 @@ class App extends Component {
                             {...this.state} />
                  }}
           />
+
           <Route path="/login" 
                  render={ (props) => {
                    return <Login 
@@ -93,14 +108,28 @@ class App extends Component {
                             {...this.state} />
                  }} 
           />
+
           <Route path="/profile"
                 render={ (props) => {
                   return <Profile {...this.state} />
-                }} />
-          {/* <Route path="/"
-                render={ (props) => {
-                  return <Home {...this.state} />
-                }} /> */}
+                }} 
+          />
+
+          <Route path="/BreweryList"
+            render={ (props) => {
+              return <BreweryContainer {...this.props} {...this.state} /> 
+            }} 
+          />
+
+          <Route path="/BreweryNearYou"
+            render={ (props) => {
+              return <BreweryNearYou {...this.state}  /> 
+            }} 
+          />
+
+
+
+          
         </main>
       </div>
     );
