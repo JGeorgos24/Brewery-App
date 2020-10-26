@@ -66,3 +66,29 @@ Use this section to include a brief code snippet of functionality that we are pr
 Code Snippet
 
 ```
+
+
+
+## Time Frames
+Estimated time frames of when we want certain goals to be completed by. 
+
+
+| Component | MVP/PostMVP | Status | Goal Date for Completion |Completed By Date |
+| --- | :---: | :---: | :---: | :---: |
+| Initial React App Set Up  | MVP | Complete | 10/23/20 | 10/23/20 |
+| Create GitHub Repository  | MVP | Complete | 10/23/20 | 10/23/20 |
+| Invite Collaborator | MVP | Complete | 10/23/20 | 10/23/20 |
+| Render Homepage | MVP | Complete | 10/23/20 | 10/23/20 |
+| Complete Login Functionality | MVP | Complete | 10/24/20 | 10/23/20 |
+| Brewery List Functionality | MVP | Incomplete | 10/26/20 | 10/../20 |
+| Brewery List Render | MVP | Incomplete | 10/26/20 | 10/../20 |
+| Profile Page With Breweries | MVP | Incomplete | 10/26/20 | 10/../20 |
+| Beer List Functionality | MVP | Incomplete | 10/27/20 | 10/../20 |
+| Beer List Render | MVP | Incomplete | 10/27/20 | 10/../20 |
+| Profile Page With Beers | MVP | Incomplete | 10/27/20 | 10/../20 |
+| Implement Styling | MVP | Incomplete | 10/28/20 | 10/../20 |
+| Incorrupt Add a Brewery/Beer Function | PostMVP | Incomplete | 10/28/20 | 10/../20 |
+| Incorrupt Google Maps | PostMVP | Incomplete | 10/28/20 | 10/../20 |
+| Incorrupt Drinking Games | PostMVP | Incomplete | 10/28/20 | 10/../20 |
+| Incorrupt Search Function | PostMVP | Incomplete | 10/28/20 | 10/../20 |
+| Improve Overall Styling | PostMVP | Incomplete | 10/29/20 | 10/../20 |
