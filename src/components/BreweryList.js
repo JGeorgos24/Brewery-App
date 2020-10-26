@@ -15,7 +15,7 @@ class BreweryList extends Component{
 
 
     render(){
-        console.log(this.props.breweries)
+        // console.log(this.props.breweries)
         return(
             <div className="BreweriesList">
                 <h2>{this.props.breweries.name}</h2>

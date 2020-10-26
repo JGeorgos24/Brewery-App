@@ -38,9 +38,10 @@ class App extends Component {
     const users = this.state.users;
     users.push(userInfo);
     this.setState({
-      users: users
+      loggedInUser: users[users.length - 1],
+      loggedIn: true
     })
-    this.props.history.push('/');
+    this.props.history.push('/profile');
   }
 
   handleLogin = (e, userInfo) => {
@@ -52,11 +53,12 @@ class App extends Component {
         return user.username === userInfo.username && user.password === userInfo.password
       }
     )
+    // console.log(filteredUser)
     if(filteredUser.length > 0) {
       this.setState({
         loggedIn: true,
         error: "",
-        loggedInUser: filteredUser
+        loggedInUser: filteredUser[0]
       })
       this.props.history.push('/profile');
     } else {
@@ -123,7 +125,7 @@ class App extends Component {
 
           <Route path="/BreweryNearYou"
             render={ (props) => {
-              return <BreweryNearYou {...this.state}  /> 
+              return <BreweryContainer {...this.props} {...this.state}  /> 
             }} 
           />
 
