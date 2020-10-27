@@ -49,14 +49,18 @@ class App extends Component {
         userBeers: [
           "Bud Light", 
           "Busch Light"
+        ],
+        userFavoriteBeers: [
+          'Bud Light',
+          'Busch Light'
         ]
       }],
       loggedIn: false,
       flag: false,
       error: "",
       loggedInUser:[{}],
-      upvoteState: false,
-      downvoteState: false
+      // upvoteState: false,
+      // downvoteState: false
       // loggedInUser: {
       //   name: "Random User",
       //   age: 0,
@@ -80,6 +84,15 @@ class App extends Component {
       //   ]
       // }
     }
+  }
+
+  addFavoriteBeer = (brewId) => {
+    const user = this.state.loggedInUser
+    user.userFavoriteBeers.push(this.state.beers[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+    this.props.history.push('/profile/beers')
   }
 
   handleAdd = (brewId, flag) => {
@@ -263,7 +276,10 @@ class App extends Component {
 
           <Route path="/profile"
                 render={ (props) => {
-                  return <Profile {...this.state} handleRemove = {this.handleRemove}/>
+                  return <Profile 
+                  {...this.state} 
+                  handleRemove = {this.handleRemove}
+                  addFavoriteBeer = {this.addFavoriteBeer}/>
                 }} 
           />
 

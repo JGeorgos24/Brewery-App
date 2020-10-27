@@ -31,10 +31,28 @@ class BeerContainer extends Component{
                     onChange = {this.onChange}
                     />
                 </form>
-                {this.props.beers.map((beer, id) => (
+                {this.props.flag ?
+                    <div className='beer-container'>
+                    {this.props.beers.map((beer, id) => (
                     beer.toLowerCase().includes(this.state.beer) ?
-                    < BeerList beer={beer} handleAdd={this.props.handleAdd} key={id} beerId={id} />: null)
-                )}
+                    < BeerList 
+                        beer={beer} 
+                        handleAdd={this.props.handleAdd} 
+                        key={id} 
+                        beerId={id} 
+                        handleUp = {this.props.handleUp} 
+                        handleDown = {this.props.handleDown}
+                        upvoteState = {this.props.upvoteState}
+                        downvoteState = {this.props.downvoteState}
+                    />
+                    : null)
+                    )}
+                </div>
+                :
+                <div></div>
+            }
+               
+               
             </div>
         )
     }

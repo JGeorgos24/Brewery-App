@@ -4,6 +4,7 @@ import ProfileBreweries from './ProfileBreweries';
 import {Route} from 'react-router-dom';
 import ProfileBreweryContainer from './ProfileBreweryContainer';
 import ProfileBeersContainer from "./ProfileBeersContainer";
+import FavoriteBeersList from './FavoriteBeersList';
 
 class Profile extends Component {
     constructor(props){
@@ -43,8 +44,12 @@ class Profile extends Component {
                 }} />
                 <Route path="/profile/beers"
                     render={ (props) => {
-                        return <ProfileBeersContainer {...this.props} {...this.state} handleRemove={this.props.handleRemove} /> 
+                        return <ProfileBeersContainer 
+                        {...this.props} {...this.state} 
+                        handleRemove={this.props.handleRemove} 
+                        addFavoriteBeers = {this.props.addFavoriteBeers}/> 
                 }} />
+                <FavoriteBeersContainer />
             </div>
             
         )
