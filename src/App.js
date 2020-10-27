@@ -80,18 +80,28 @@ class App extends Component {
     }
   }
 
-  handleAdd = (brewId) => {
-    const user = this.state.loggedInUser
-    user.userBrews.push(this.state.breweries[brewId])
-    console.log(this.state.breweries[brewId])
-    this.setState({
-        loggedInUser: user
-    }) 
-    this.props.history.push('/profile/breweries');
+  handleAdd = (brewId, flag) => {
+    if(flag) {
+      const user = this.state.loggedInUser
+      user.userBeers.push(this.state.beers[brewId])
+      console.log(this.state.beers[brewId])
+      this.setState({
+          loggedInUser: user
+      }) 
+      this.props.history.push('/profile/beers'); 
+    }
+    else{
+      const user = this.state.loggedInUser
+      user.userBrews.push(this.state.breweries[brewId])
+      console.log(this.state.breweries[brewId])
+      this.setState({
+          loggedInUser: user
+      }) 
+      this.props.history.push('/profile/breweries');      
+    }
   }
 
   handleRemove = (brewId, flag) => {
-
     if(flag){
       const userBeers = this.state.loggedInUser.userBeers;
       const newBeers1 = userBeers.slice(0, brewId)
@@ -116,9 +126,6 @@ class App extends Component {
         loggedInUser: user
       })
     }
-    // this.setState({
-    //   loggedInUser: user
-    // })
   }
 
   handleSignup = (e, userInfo) => {
@@ -243,7 +250,8 @@ class App extends Component {
           <Route path="/BeerList"
             render={ (props) => {
               return <BeerContainer 
-                        beers={this.state.beers} 
+                        beers={this.state.beers}
+                        handleAdd = {this.handleAdd} 
                         {...this.props} 
                         {...this.state}  
                       /> 

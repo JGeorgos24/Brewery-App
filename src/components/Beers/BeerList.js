@@ -19,6 +19,7 @@ class BeerList extends Component{
         return(
             <div>
                 <p>{this.props.beer}</p>
+                <button onClick={() => this.props.handleAdd(this.props.beerId, true)}>Add to Favorite Beers</button>
             </div>
         )
     }

@@ -33,7 +33,7 @@ class BeerContainer extends Component{
                 </form>
                 {this.props.beers.map((beer, id) => (
                     beer.toLowerCase().includes(this.state.beer) ?
-                    < BeerList beer={beer} key={id} beerId={id} />: null)
+                    < BeerList beer={beer} handleAdd={this.props.handleAdd} key={id} beerId={id} />: null)
                 )}
             </div>
         )
