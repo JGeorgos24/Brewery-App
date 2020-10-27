@@ -5,6 +5,7 @@ import axios from "axios";
 import BreweryNearYou from './BreweryNearYou';
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
+
 class BreweryContainer extends Component{
     constructor(props){
         super(props);

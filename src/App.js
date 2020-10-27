@@ -4,18 +4,23 @@ import axios from 'axios';
 
 import { Route, withRouter } from 'react-router-dom';
 
-import Header from './components/Header';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
-import Profile from './components/Profile';
-import Home from './components/Home';
-import BreweryList from './components/BreweryList';
-import BreweryNearYou from "./components/BreweryNearYou";
-import BreweryContainer from "./components/BreweryContainer";
-import ProfileBreweries from './components/ProfileBreweries';
-import HomePageDisplay from "./components/HomePageDisplay";
+import Header from './components/Home/Header';
+import SignUp from './components/Login-SignUp/SignUp';
+import Login from './components/Login-SignUp/Login';
+import Profile from './components/Profile/Profile';
+import Home from './components/Home/Home';
+import BreweryList from './components/Breweries/BreweryList';
+import BreweryNearYou from "./components/Breweries/BreweryNearYou";
+import BreweryContainer from "./components/Breweries/BreweryContainer";
+import ProfileBreweries from './components/Profile/ProfileBreweries';
+import HomePageDisplay from "./components/Home/HomePageDisplay";
+import BeerContainer from "./components/Beers/BeerContainer";
+import BeerList from "./components/Beers/BeerList";
+import beers from "./beers.json";
+
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
+
 
 class App extends Component {
   constructor() {
@@ -23,6 +28,7 @@ class App extends Component {
     
     this.state = {
       breweries: "",
+      beers: beers,
       users: [{
         name: "Random User",
         age: 0,
@@ -44,24 +50,25 @@ class App extends Component {
       loggedIn: false,
       flag: false,
       error: "",
-      loggedInUser: {
-        name: "Random User",
-        age: 0,
-        username: "username",
-        password: "password",
-        userBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-      ]
-      }
+      loggedInUser:[{}],
+      // loggedInUser: {
+      //   name: "Random User",
+      //   age: 0,
+      //   username: "username",
+      //   password: "password",
+      //   userBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      // ]
+      // }
     }
   }
 
@@ -91,12 +98,19 @@ handleAdd = (brewId) => {
 
   handleSignup = (e, userInfo) => {
     e.preventDefault();
+    userInfo.userBrews = [];
     const users = this.state.users;
+    let loggedInUser = this.state.loggedInUser;
     users.push(userInfo);
+    loggedInUser.splice(0, 1, userInfo);
+    console.log(loggedInUser);
+    console.log(userInfo);
     this.setState({
-      loggedInUser: users[users.length - 1],
+      loggedInUser: loggedInUser[0],
+      // loggedInUser: users[users.length - 1],
       loggedIn: true
     })
+    console.log(this.state.loggedInUser);
     this.props.history.push('/profile');
   }
 
@@ -123,6 +137,17 @@ handleAdd = (brewId) => {
     }
   }
 
+  handleLogout = (e) => {
+    e.preventDefault();
+    let loggedInUser = this.state.loggedInUser
+    loggedInUser=[{}];
+    this.setState({
+      loggedIn: false,
+      loggedInUser
+    })
+    this.props.history.push('/CervezApp')
+  }
+
   async renderAllBreweries() {
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
@@ -143,7 +168,7 @@ handleAdd = (brewId) => {
     console.log(this.state)
     return (
       <div className="App">
-        <Header {...this.state}/>
+        <Header {...this.state} handleLogout={this.handleLogout}/>
         <main>
           <Route path="/CervezApp"
                     render={ (props) => {
@@ -187,6 +212,12 @@ handleAdd = (brewId) => {
           <Route path="/BreweryNearYou"
             render={ (props) => {
               return <BreweryContainer {...this.props} {...this.state}  /> 
+            }} 
+          />
+
+          <Route path="/BeerList"
+            render={ (props) => {
+              return <BeerContainer beers={this.state.beers} {...this.props} {...this.state}  /> 
             }} 
           />
   
