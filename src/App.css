@@ -93,7 +93,7 @@ a {
   justify-items: center;
   flex-direction: column;
   width: 300px;
-  height: 250px;
+  height: 300px;
   margin: 10px;
   border: 2px solid black;
 }
@@ -119,4 +119,9 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   text-align: center;
+}
+
+.small {
+  height: 20px;
+  width: 20px;
 }

@@ -49,7 +49,15 @@ class BreweryContainer extends Component{
                             breweries.state.toLowerCase().includes(this.state.search) ||
                             breweries.city.toLowerCase().includes(this.state.search)
                             ?
-                            <BreweryList breweries={breweries} handleAdd={this.props.handleAdd} brewId={id}/>
+                            <BreweryList 
+                                breweries={breweries} 
+                                handleAdd={this.props.handleAdd} 
+                                brewId={id} 
+                                handleUp = {this.props.handleUp} 
+                                handleDown = {this.props.handleDown}
+                                upvoteState = {this.props.upvoteState}
+                                downvoteState = {this.props.downvoteState}
+                                />
                             : null
                         ))}
                     </div>

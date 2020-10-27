@@ -54,29 +54,31 @@ class App extends Component {
       loggedIn: false,
       flag: false,
       error: "",
-      // loggedInUser:[{}],
-      loggedInUser: {
-        name: "Random User",
-        age: 0,
-        username: "username",
-        password: "password",
-        userBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userBeers: [
-          "Bud Light", 
-          "Busch Light"
-        ]
-      }
+      loggedInUser:[{}],
+      upvoteState: false,
+      downvoteState: false
+      // loggedInUser: {
+      //   name: "Random User",
+      //   age: 0,
+      //   username: "username",
+      //   password: "password",
+      //   userBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userBeers: [
+      //     "Bud Light", 
+      //     "Busch Light"
+      //   ]
+      // }
     }
   }
 
@@ -131,6 +133,7 @@ class App extends Component {
   handleSignup = (e, userInfo) => {
     e.preventDefault();
     userInfo.userBrews = [];
+    userInfo.userBeers = [];
     const users = this.state.users;
     let loggedInUser = this.state.loggedInUser;
     users.push(userInfo);
@@ -192,6 +195,40 @@ class App extends Component {
     })
   }
 
+  handleUp = (brewId, flag) => {
+    const breweries = this.state.breweries;
+    const upvoteState = !this.state.upvoteState
+    console.log(flag)
+    if (!flag) {
+      breweries[brewId].upvotes ++;
+    this.setState({
+      breweries,
+      upvoteState
+    })} else {
+      
+      breweries[brewId].upvotes --;
+    this.setState({
+      breweries,
+      upvoteState
+    })}
+    }
+    
+    handleDown = (brewId, flag) => {
+      const breweries = this.state.breweries;
+      if (!flag) {
+        breweries[brewId].upvotes --;
+      this.setState({
+        breweries,
+        downvoteState: !flag
+      })} else {
+        
+        breweries[brewId].upvotes ++;
+      this.setState({
+        breweries,
+        downvoteState: !flag
+      })}
+      }
+
   componentDidMount() {
     this.renderAllBreweries();
   }
@@ -237,7 +274,11 @@ class App extends Component {
                       breweries={this.state.breweries}
                       {...this.props} 
                       {...this.state}
-                      handleAdd = {this.handleAdd} /> 
+                      upvoteState={this.state.upvoteState}
+                      downvoteState={this.state.downvoteState}
+                      handleAdd = {this.handleAdd}
+                      handleUp = {this.handleUp} 
+                      handleDown = {this.handleDown}/> 
             }} 
           />
 
