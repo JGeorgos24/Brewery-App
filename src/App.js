@@ -13,6 +13,7 @@ import BreweryList from './components/BreweryList';
 import BreweryNearYou from "./components/BreweryNearYou";
 import BreweryContainer from "./components/BreweryContainer";
 import ProfileBreweries from './components/ProfileBreweries';
+import HomePageDisplay from "./components/HomePageDisplay";
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
 
@@ -144,6 +145,12 @@ handleAdd = (brewId) => {
       <div className="App">
         <Header {...this.state}/>
         <main>
+          <Route path="/CervezApp"
+                    render={ (props) => {
+                      return <HomePageDisplay {...this.state} />
+                    }} 
+          />
+
           <Route path="/signup" 
                  render={ (props) => {
                    return <SignUp 

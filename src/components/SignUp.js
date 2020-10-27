@@ -20,7 +20,7 @@ class SignUp extends Component {
 
     render() {
         return (
-            <header>
+            <div className="SignUp">
                 <h1>Sign Up Page</h1>
                 <form onSubmit={(e) => this.props.handleSignup(e, this.state)}>
                     <input
@@ -53,7 +53,7 @@ class SignUp extends Component {
                     />
                     <input type="submit" value="Create Profile" />
                 </form>
-            </header>
+            </div>
         )
     }
     

@@ -18,7 +18,7 @@ class Login extends Component {
 
     render() {
         return (
-            <header>
+            <div className="LogIn">
                 <h1>Log In Page</h1>
                 {this.props.error && <div>{this.props.error}</div>}
                 <form onSubmit={(e) => this.props.handleLogin(e, this.state)}>
@@ -38,7 +38,7 @@ class Login extends Component {
                     />
                     <input type="submit" value="Login" />
                 </form>
-            </header>
+            </div>
         )
     }
 }

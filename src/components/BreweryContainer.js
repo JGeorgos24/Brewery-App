@@ -42,7 +42,7 @@ class BreweryContainer extends Component{
                  
                 </form>
                 {this.props.flag ? 
-                    <div>
+                    <div className="BreweryContainer">
                          {this.props.breweries.map((breweries, id) => (
                             breweries.name.toLowerCase().includes(this.state.search) ||
                             breweries.state.toLowerCase().includes(this.state.search) ||
