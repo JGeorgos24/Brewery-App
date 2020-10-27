@@ -1,21 +1,26 @@
 import React, {Component} from 'react';
+import ProfileBeers from "./ProfileBeers";
+import FavoriteBeersList from "./FavoriteBeersList";
 
-class FavoriteBeersContainer extends Component {
-    constructor(props){
-        super(props);
+const FavoriteBeersContainer=(props) =>{
+    console.log(props)
 
-        this.state = {
+    return(
+        <div>
+            <h1>Favorite Beers List</h1>
+                {props.loggedInUser.userFavoriteBeers.map((beer, id) => {
+            return (<FavoriteBeersList
+                handleRemove = {props.handleRemove} 
+                addFavoriteBeer = {props.addFavoriteBeer}
+                removeFavoriteBeer={props.removeFavoriteBeer}
+                beer={beer} 
+                key={id} 
+                beerId = {id} />)
+            })} 
 
-        }
-    }
-
-    render() {
-        return(
-            <div>
-
-            </div>
-        )
-    }
+        </div>
+    )
+    
 }
 
 export default FavoriteBeersContainer;

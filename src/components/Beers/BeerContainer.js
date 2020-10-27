@@ -34,14 +34,14 @@ class BeerContainer extends Component{
                 {this.props.flag ?
                     <div className='beer-container'>
                     {this.props.beers.map((beer, id) => (
-                    beer.toLowerCase().includes(this.state.beer) ?
+                    beer.name.toLowerCase().includes(this.state.beer) ?
                     < BeerList 
                         beer={beer} 
                         handleAdd={this.props.handleAdd} 
                         key={id} 
                         beerId={id} 
-                        handleUp = {this.props.handleUp} 
-                        handleDown = {this.props.handleDown}
+                        handleUpBeer = {this.props.handleUpBeer} 
+                        handleDownBeer = {this.props.handleDownBeer}
                         upvoteState = {this.props.upvoteState}
                         downvoteState = {this.props.downvoteState}
                     />

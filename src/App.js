@@ -28,7 +28,7 @@ class App extends Component {
     
     this.state = {
       breweries: "",
-      beers: beers,
+      beers: [],
       users: [{
         name: "Random User",
         age: 0,
@@ -47,42 +47,68 @@ class App extends Component {
           }
         ],
         userBeers: [
-          "Bud Light", 
-          "Busch Light"
+          {
+           name: "Bud Light" 
+          },
+          {
+           name: "Busch Light" 
+          } 
         ],
         userFavoriteBeers: [
-          'Bud Light',
-          'Busch Light'
-        ]
+          {
+           name: "Bud Light" 
+          },
+          {
+           name: "Busch Light" 
+          },
+          {
+            name: "Coors Light" 
+          }  
+        ],
       }],
       loggedIn: false,
       flag: false,
       error: "",
-      loggedInUser:[{}],
-      // upvoteState: false,
-      // downvoteState: false
-      // loggedInUser: {
-      //   name: "Random User",
-      //   age: 0,
-      //   username: "username",
-      //   password: "password",
-      //   userBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userBeers: [
-      //     "Bud Light", 
-      //     "Busch Light"
-      //   ]
-      // }
+      // loggedInUser:[{}],
+      upvoteState: false,
+      downvoteState: false,
+      loggedInUser: {
+        name: "Random User",
+        age: 0,
+        username: "username",
+        password: "password",
+        userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userBeers: [
+          {
+            name: "Bud Light" 
+           },
+           {
+            name: "Busch Light" 
+           } 
+        ],
+        userFavoriteBeers: [
+          {
+           name: "Bud Light" 
+          },
+          {
+           name: "Busch Light" 
+          },
+          {
+            name: "Coors Light" 
+          }  
+        ],
+      }
     }
   }
 
@@ -124,6 +150,33 @@ class App extends Component {
       const both = newBeers1.concat(newBeers2)
       const user = this.state.loggedInUser
       user.userBeers = both
+      console.log(newBeers1)
+      this.setState({
+        loggedInUser: user
+      })
+    }
+    else{
+      const userBrews = this.state.loggedInUser.userBrews;
+      const newBrews1 = userBrews.slice(0, brewId)
+      const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
+      const both = newBrews1.concat(newBrews2)
+      const user = this.state.loggedInUser
+      user.userBrews = both
+      console.log(newBrews1)
+      this.setState({
+        loggedInUser: user
+      })
+    }
+  }
+
+  removeFavoriteBeer= (brewId, flag) => {
+    if(flag){
+      const userFavoriteBeers = this.state.loggedInUser.userFavoriteBeers;
+      const newBeers1 = userFavoriteBeers.slice(0, brewId)
+      const newBeers2 = userFavoriteBeers.slice(brewId + 1, userFavoriteBeers.length)
+      const both = newBeers1.concat(newBeers2)
+      const user = this.state.loggedInUser
+      user.userFavoriteBeers = both
       console.log(newBeers1)
       this.setState({
         loggedInUser: user
@@ -227,23 +280,73 @@ class App extends Component {
     })}
     }
     
-    handleDown = (brewId, flag) => {
-      const breweries = this.state.breweries;
-      if (!flag) {
-        breweries[brewId].upvotes --;
-        breweries[brewId].downvoteState = !flag
-      this.setState({
-        breweries
-      })} else {
-        breweries[brewId].upvotes ++;
-        breweries[brewId].downvoteState = !flag
-      this.setState({
-        breweries
-      })}
-      }
+  handleDown = (brewId, flag) => {
+    const breweries = this.state.breweries;
+    if (!flag) {
+      breweries[brewId].upvotes --;
+      breweries[brewId].downvoteState = !flag
+    this.setState({
+      breweries
+    })} else {
+      breweries[brewId].upvotes ++;
+      breweries[brewId].downvoteState = !flag
+    this.setState({
+      breweries
+    })}
+  }
+
+  handleUpBeer = (brewId, flag) => {
+    const beers = this.state.beers;
+    // const upvoteState = !this.state.upvoteState
+    console.log(flag)
+    if (!flag) {
+      beers[brewId].upvotes ++;
+      beers[brewId].upvoteState = !flag
+    this.setState({
+      beers
+    })} else {
+      beers[brewId].upvotes --;
+      beers[brewId].upvoteState = !flag
+    this.setState({
+      beers
+    })}
+    }
+    
+  handleDownBeer = (brewId, flag) => {
+    const beers = this.state.beers;
+    if (!flag) {
+      beers[brewId].upvotes --;
+      beers[brewId].downvoteState = !flag
+    this.setState({
+      beers
+    })} else {
+      beers[brewId].upvotes ++;
+      beers[brewId].downvoteState = !flag
+    this.setState({
+      beers
+    })}
+  }
+
+  renderAllBeers() {   
+     const beerList = beers;    
+     const beerArray = [];    
+    for(let i=0; i < beerList.length; i++) {      
+      const beerObject = {};      
+      let upvote = Math.floor(Math.random() * 100);      
+      beerObject.name = beerList[i];      
+      beerObject.upvotes = upvote;      
+      beerObject.upvoteState = false;      
+      beerObject.downvoteState = false;      
+      beerArray.push(beerObject)    
+    }    
+      this.setState({      
+        beers: beerArray    
+      })  
+  }
 
   componentDidMount() {
     this.renderAllBreweries();
+    this.renderAllBeers();
   }
 
   render() {
@@ -277,9 +380,11 @@ class App extends Component {
           <Route path="/profile"
                 render={ (props) => {
                   return <Profile 
-                  {...this.state} 
-                  handleRemove = {this.handleRemove}
-                  addFavoriteBeer = {this.addFavoriteBeer}/>
+                    {...this.state} 
+                    handleRemove = {this.handleRemove}
+                    addFavoriteBeer = {this.addFavoriteBeer}
+                    removeFavoriteBeer={this.removeFavoriteBeer}
+                  />
                 }} 
           />
 
@@ -310,7 +415,9 @@ class App extends Component {
                         beers={this.state.beers}
                         handleAdd = {this.handleAdd} 
                         {...this.props} 
-                        {...this.state}  
+                        {...this.state}
+                        handleUpBeer = {this.handleUpBeer} 
+                        handleDownBeer = {this.handleDownBeer}  
                       /> 
             }} 
           />

@@ -10,11 +10,13 @@ const ProfileBeersContainer = (props) => {
             {props.loggedInUser.userBeers.map((beer, id) => {
                 return (<ProfileBeers 
                     handleRemove = {props.handleRemove} 
-                    addFavoriteBeers = {props.addFavoriteBeers}
+                    addFavoriteBeer = {props.addFavoriteBeer}
                     beer={beer} 
                     key={id} 
                     beerId = {id} />)
-            })}
+            })}                
+            
+
         </div>
     )
 }
