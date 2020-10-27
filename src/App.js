@@ -45,34 +45,42 @@ class App extends Component {
               city: 'bbbbb',
               state: 'bbbbb'
           }
-      ]
-        }],
+        ],
+        userBeers: [
+          "Bud Light", 
+          "Busch Light"
+        ]
+      }],
       loggedIn: false,
       flag: false,
       error: "",
-      loggedInUser:[{}],
-      // loggedInUser: {
-      //   name: "Random User",
-      //   age: 0,
-      //   username: "username",
-      //   password: "password",
-      //   userBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      // ]
-      // }
+      // loggedInUser:[{}],
+      loggedInUser: {
+        name: "Random User",
+        age: 0,
+        username: "username",
+        password: "password",
+        userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userBeers: [
+          "Bud Light", 
+          "Busch Light"
+        ]
+      }
     }
   }
 
-handleAdd = (brewId) => {
+  handleAdd = (brewId) => {
     const user = this.state.loggedInUser
     user.userBrews.push(this.state.breweries[brewId])
     console.log(this.state.breweries[brewId])
@@ -80,21 +88,38 @@ handleAdd = (brewId) => {
         loggedInUser: user
     }) 
     this.props.history.push('/profile/breweries');
-}
+  }
 
-  handleRemove = (brewId) => {
-    const userBrews = this.state.loggedInUser.userBrews;
-    const newBrews1 = userBrews.slice(0, brewId)
-    const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
-    const both = newBrews1.concat(newBrews2)
-    const user = this.state.loggedInUser
-    user.userBrews = both
-    console.log(newBrews1)
-    this.setState({
+  handleRemove = (brewId, flag) => {
+
+    if(flag){
+      const userBeers = this.state.loggedInUser.userBeers;
+      const newBeers1 = userBeers.slice(0, brewId)
+      const newBeers2 = userBeers.slice(brewId + 1, userBeers.length)
+      const both = newBeers1.concat(newBeers2)
+      const user = this.state.loggedInUser
+      user.userBeers = both
+      console.log(newBeers1)
+      this.setState({
         loggedInUser: user
-    })
-
-}
+      })
+    }
+    else{
+      const userBrews = this.state.loggedInUser.userBrews;
+      const newBrews1 = userBrews.slice(0, brewId)
+      const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
+      const both = newBrews1.concat(newBrews2)
+      const user = this.state.loggedInUser
+      user.userBrews = both
+      console.log(newBrews1)
+      this.setState({
+        loggedInUser: user
+      })
+    }
+    // this.setState({
+    //   loggedInUser: user
+    // })
+  }
 
   handleSignup = (e, userInfo) => {
     e.preventDefault();
@@ -217,7 +242,11 @@ handleAdd = (brewId) => {
 
           <Route path="/BeerList"
             render={ (props) => {
-              return <BeerContainer beers={this.state.beers} {...this.props} {...this.state}  /> 
+              return <BeerContainer 
+                        beers={this.state.beers} 
+                        {...this.props} 
+                        {...this.state}  
+                      /> 
             }} 
           />
   

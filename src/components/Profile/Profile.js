@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import ProfileBreweries from './ProfileBreweries';
 import {Route} from 'react-router-dom';
-import ProfileBreweryContainer from './ProfileBreweryContainer'
+import ProfileBreweryContainer from './ProfileBreweryContainer';
+import ProfileBeersContainer from "./ProfileBeersContainer";
 
 class Profile extends Component {
     constructor(props){
@@ -39,6 +40,10 @@ class Profile extends Component {
                 <Route path="/profile/breweries"
                     render={ (props) => {
                         return <ProfileBreweryContainer {...this.props} {...this.state} handleRemove={this.props.handleRemove} /> 
+                }} />
+                <Route path="/profile/beers"
+                    render={ (props) => {
+                        return <ProfileBeersContainer {...this.props} {...this.state} handleRemove={this.props.handleRemove} /> 
                 }} />
             </div>
             

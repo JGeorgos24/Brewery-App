@@ -21,7 +21,7 @@ class ProfileBreweries extends Component {
             <div>
                 <h2>{this.props.brews.name}</h2>
                 <p>{this.props.brews.city}, {this.props.brews.state}</p>
-                <button onClick={()=> this.props.handleRemove(this.props.brewId)}>Remove</button>
+                <button onClick={()=> this.props.handleRemove(this.props.brewId, false)}>Remove</button>
             </div>
         )
     }
