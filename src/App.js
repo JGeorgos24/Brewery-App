@@ -188,6 +188,8 @@ class App extends Component {
     for(let i=0; i < resp.data.length; i++) {
       let upvote = Math.floor(Math.random() * 100);
       resp.data[i].upvotes = upvote;
+      resp.data[i].upvoteState = false;
+      resp.data[i].downvoteState = false;
     }
     this.setState({
       breweries: resp.data,
@@ -197,19 +199,18 @@ class App extends Component {
 
   handleUp = (brewId, flag) => {
     const breweries = this.state.breweries;
-    const upvoteState = !this.state.upvoteState
+    // const upvoteState = !this.state.upvoteState
     console.log(flag)
     if (!flag) {
       breweries[brewId].upvotes ++;
+      breweries[brewId].upvoteState = !flag
     this.setState({
-      breweries,
-      upvoteState
+      breweries
     })} else {
-      
       breweries[brewId].upvotes --;
+      breweries[brewId].upvoteState = !flag
     this.setState({
-      breweries,
-      upvoteState
+      breweries
     })}
     }
     
@@ -217,15 +218,14 @@ class App extends Component {
       const breweries = this.state.breweries;
       if (!flag) {
         breweries[brewId].upvotes --;
+        breweries[brewId].downvoteState = !flag
       this.setState({
-        breweries,
-        downvoteState: !flag
+        breweries
       })} else {
-        
         breweries[brewId].upvotes ++;
+        breweries[brewId].downvoteState = !flag
       this.setState({
-        breweries,
-        downvoteState: !flag
+        breweries
       })}
       }
 
