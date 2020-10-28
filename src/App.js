@@ -114,7 +114,7 @@ class App extends Component {
 
   addFavoriteBeer = (brewId) => {
     const user = this.state.loggedInUser
-    user.userFavoriteBeers.push(this.state.beers[brewId])
+    user.userFavoriteBeers.push(this.state.loggedInUser.userBeers[brewId])
     this.setState({
       loggedInUser: user
     })
