@@ -17,9 +17,10 @@ import HomePageDisplay from "./components/Home/HomePageDisplay";
 import BeerContainer from "./components/Beers/BeerContainer";
 import BeerList from "./components/Beers/BeerList";
 import beers from "./beers.json";
+import states from './states.json';
 
 
-const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_city=&per_page=50";
+const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_state=new_york&per_page=50";
 
 
 class App extends Component {
@@ -255,6 +256,26 @@ class App extends Component {
     this.props.history.push('/CervezApp')
   }
 
+  // async renderAllBreweries() {
+  //   let resp;
+  //   let totalResp = [];
+  //   for(let i=0; i < states.length; i++) {
+  //     resp = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${states[i]}&per_page=50`);
+  //     for(let i=0; i < resp.data.length; i++) {
+  //       let upvote = Math.floor(Math.random() * 100);
+  //       resp.data[i].upvotes = upvote;
+  //       resp.data[i].upvoteState = false;
+  //       resp.data[i].downvoteState = false;
+  //     }
+  //     totalResp = totalResp.concat(resp.data);
+  //   }
+  //   console.log(totalResp);
+  //   this.setState({
+  //     breweries: totalResp,
+  //     flag: true
+  //   })
+  // }
+
   async renderAllBreweries() {
     const resp = await axios.get(AllBreweriesURL);
     for(let i=0; i < resp.data.length; i++) {
@@ -268,6 +289,7 @@ class App extends Component {
       flag: true
     })
   }
+    
 
   handleUp = (brewId, flag) => {
     const breweries = this.state.breweries;
