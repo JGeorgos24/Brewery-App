@@ -114,11 +114,17 @@ class App extends Component {
 
   addFavoriteBeer = (brewId) => {
     const user = this.state.loggedInUser
-    user.userFavoriteBeers.push(this.state.beers[brewId])
+    for(let i = 0; i < user.userFavoriteBeers.length; i++) {
+      if(user.userFavoriteBeers.includes(this.state.loggedInUser.userBeers[brewId])) {
+        alert('beer already in favorites list')
+        return
+      } 
+    }
+    user.userFavoriteBeers.push(this.state.loggedInUser.userBeers[brewId])
     this.setState({
       loggedInUser: user
     })
-    this.props.history.push('/profile/beers')
+     this.props.history.push('/profile/beers')
   }
 
   handleAdd = (brewId, flag) => {
