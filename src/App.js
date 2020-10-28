@@ -18,6 +18,7 @@ import BeerContainer from "./components/Beers/BeerContainer";
 import BeerList from "./components/Beers/BeerList";
 import beers from "./beers.json";
 import states from './states.json';
+import DrinkingGames from "./components/Games/DrinkingGames";
 
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_state=new_york&per_page=50";
@@ -619,6 +620,16 @@ class App extends Component {
                         {...this.state}
                         handleUpBeer = {this.handleUpBeer} 
                         handleDownBeer = {this.handleDownBeer}  
+                      /> 
+            }} 
+          />
+
+          <Route path="/Games"
+            render={ (props) => {
+              return <DrinkingGames
+                        beers={this.state.beers}
+                        {...this.props} 
+                        {...this.state}  
                       /> 
             }} 
           />

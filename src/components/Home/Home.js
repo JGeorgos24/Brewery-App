@@ -8,6 +8,7 @@ const Home = (props) => {
                 <Link className="LinksInNavBar" to="/BreweryList">Brewery List</Link>
                 <Link className="LinksInNavBar" to="/BeerList">Beer List</Link>
                 <Link className="LinksInNavBar" to="/BreweryNearYou">Breweries Near You</Link>
+                <Link className="LinksInNavBar" to="/Games">Drinking Games</Link>
                 {props.loggedIn && <Link className="LinksInNavBar" to="/profile">Your Profile</Link>}
             </nav>
         </div>
