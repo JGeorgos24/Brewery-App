@@ -229,6 +229,12 @@ class App extends Component {
   handleAdd = (brewId, flag) => {
     if(flag) {
       const user = this.state.loggedInUser
+      for (let i=0; i < user.userBeers.length; i++) {
+        if (user.userBeers.includes(this.state.beers[brewId])){
+          alert("You've already added this beer to your list")
+          return
+        }
+      }
       user.userBeers.push(this.state.beers[brewId])
       console.log(this.state.beers[brewId])
       this.setState({
@@ -238,6 +244,12 @@ class App extends Component {
     }
     else{
       const user = this.state.loggedInUser
+      for (let i=0; i < user.userBeers.length; i++) {
+        if (user.userBrews.includes(this.state.breweries[brewId])) {
+          alert("You've already added this brewery to your list")
+          return
+        }
+      }
       user.userBrews.push(this.state.breweries[brewId])
       console.log(this.state.breweries[brewId])
       this.setState({
