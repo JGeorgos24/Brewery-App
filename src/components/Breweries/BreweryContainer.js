@@ -32,16 +32,20 @@ class BreweryContainer extends Component{
     render() {
     console.log(this.props.flag)
         return(
-            <div className="BreweryContainer">  
-                <form>
-                    <input className = 'search'
-                    type = 'text'
-                    name = 'state'
-                    placeholder = 'Search by Brewery, City, or State'
-                    onChange = {this.onChange}
-                    />
-                 
-                </form>
+            <div className="BreweryContainer"> 
+                <div className="BreweryListHeader">
+                    <h1>Brewery List</h1> 
+                    <form>
+                        <input className = 'search'
+                        type = 'text'
+                        name = 'state'
+                        placeholder = 'Search by Brewery, City, or State'
+                        onChange = {this.onChange}
+                        />
+                    
+                    </form>
+                </div>
+
                 {this.props.flag ? 
                     <div className="BreweryContainer">
                          {this.props.breweries.map((breweries, id) => (

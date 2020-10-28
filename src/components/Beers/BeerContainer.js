@@ -21,7 +21,7 @@ class BeerContainer extends Component{
 
     render(){
         return(
-            <div>
+            <div className="BeerContainer">
                 <h1> Beer List </h1>
                 <form>
                     <input className = 'search'
@@ -32,7 +32,7 @@ class BeerContainer extends Component{
                     />
                 </form>
                 {this.props.flag ?
-                    <div className='beer-container'>
+                    <div className="BeerListInContainer">
                     {this.props.beers.map((beer, id) => (
                     beer.name.toLowerCase().includes(this.state.beer) ?
                     < BeerList 
