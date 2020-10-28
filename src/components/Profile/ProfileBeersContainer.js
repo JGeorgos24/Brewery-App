@@ -11,6 +11,7 @@ const ProfileBeersContainer = (props) => {
                 return (<ProfileBeers 
                     handleRemove = {props.handleRemove} 
                     addFavoriteBeer = {props.addFavoriteBeer}
+                    addTriedBeer = {props.addTriedBeer}
                     beer={beer} 
                     key={id} 
                     beerId = {id} />)

@@ -109,6 +109,17 @@ class App extends Component {
             name: "Coors Light" 
           }  
         ],
+        userTriedBeer: [
+          {
+            name: "Bud Light" 
+           },
+           {
+            name: "Busch Light" 
+           },
+           {
+             name: "Coors Light" 
+           } 
+        ]
       }
     }
   }
@@ -126,6 +137,34 @@ class App extends Component {
       loggedInUser: user
     })
      this.props.history.push('/profile/beers')
+  }
+
+  addTriedBeer = (brewId) => {
+    const user = this.state.loggedInUser
+    for(let i = 0; i < user.userTriedBeer.length; i++) {
+      if(user.userTriedBeer.includes(this.state.loggedInUser.userBeers[brewId])) {
+        alert('beer already in favorites list')
+        return
+      }
+    }
+    user.userTriedBeer.push(this.state.loggedInUser.userBeers[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+    this.props.history.push('/profile/beers')
+  }
+
+  removeTriedBeer = (brewId) => {
+    const userTriedBeer = this.state.loggedInUser.userTriedBeer;
+    const newBeers1 = userTriedBeer.slice(0, brewId)
+    const newBeers2 = userTriedBeer.slice(brewId + 1, userTriedBeer.length)
+    const both = newBeers1.concat(newBeers2)
+    const user = this.state.loggedInUser
+    user.userTriedBeer = both
+    // console.log(newBeers1)
+    this.setState({
+      loggedInUser: user
+    })
   }
 
   handleAdd = (brewId, flag) => {
@@ -189,18 +228,18 @@ class App extends Component {
         loggedInUser: user
       })
     }
-    else{
-      const userBrews = this.state.loggedInUser.userBrews;
-      const newBrews1 = userBrews.slice(0, brewId)
-      const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
-      const both = newBrews1.concat(newBrews2)
-      const user = this.state.loggedInUser
-      user.userBrews = both
-      console.log(newBrews1)
-      this.setState({
-        loggedInUser: user
-      })
-    }
+    // else{
+    //   const userBrews = this.state.loggedInUser.userBrews;
+    //   const newBrews1 = userBrews.slice(0, brewId)
+    //   const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
+    //   const both = newBrews1.concat(newBrews2)
+    //   const user = this.state.loggedInUser
+    //   user.userBrews = both
+    //   console.log(newBrews1)
+    //   this.setState({
+    //     loggedInUser: user
+    //   })
+    // }
   }
 
   handleSignup = (e, userInfo) => {
@@ -412,6 +451,8 @@ class App extends Component {
                     handleRemove = {this.handleRemove}
                     addFavoriteBeer = {this.addFavoriteBeer}
                     removeFavoriteBeer={this.removeFavoriteBeer}
+                    addTriedBeer = {this.addTriedBeer}
+                    removeTriedBeer = {this.removeTriedBeer}
                   />
                 }} 
           />

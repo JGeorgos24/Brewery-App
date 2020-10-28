@@ -6,6 +6,7 @@ import ProfileBreweryContainer from './ProfileBreweryContainer';
 import ProfileBeersContainer from "./ProfileBeersContainer";
 import FavoriteBeersList from './FavoriteBeersList';
 import FavoriteBeersContainer from "./FavoriteBeersContainer";
+import BeersTriedContainer from './BeersTriedContainer';
 
 class Profile extends Component {
     constructor(props){
@@ -52,6 +53,7 @@ class Profile extends Component {
                                     {...this.state} 
                                     handleRemove={this.props.handleRemove} 
                                     addFavoriteBeer = {this.props.addFavoriteBeer}
+                                    addTriedBeer = {this.props.addTriedBeer}
                                 /> 
                                 <FavoriteBeersContainer 
                                     {...this.props} 
@@ -59,6 +61,11 @@ class Profile extends Component {
                                     handleRemove={this.props.handleRemove}
                                     addFavoriteBeer = {this.props.addFavoriteBeer}
                                     removeFavoriteBeer={this.props.removeFavoriteBeer} 
+                                />
+                                <BeersTriedContainer
+                                    {...this.props}
+                                    {...this.state}
+                                    removeTriedBeer = {this.props.removeTriedBeer}
                                 />
                             </div>
                         )
