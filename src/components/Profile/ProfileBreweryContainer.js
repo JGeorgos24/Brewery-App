@@ -8,7 +8,13 @@ const ProfileBreweryContainer = (props) => {
         <div>
             <h1>My Brewery List</h1>
             {props.loggedInUser.userBrews.map((brews, id) => {
-                return (<ProfileBreweries handleRemove = {props.handleRemove} brews={brews} key={id} brewId = {id} />)
+                return (<ProfileBreweries 
+                            handleRemove = {props.handleRemove} 
+                            addFavoriteBrew = {props.addFavoriteBrew}
+                            addTriedBrew = {props.addTriedBrew}
+                            brews={brews} 
+                            key={id} 
+                            brewId = {id} />)
             })}
         </div>
     )

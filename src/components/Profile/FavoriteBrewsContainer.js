@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ProfileBrews from "./ProfileBrews";
+import ProfileBreweries from "./ProfileBreweries";
 import FavoriteBrewsList from "./FavoriteBrewsList";
 
 const FavoriteBrewsContainer=(props) =>{

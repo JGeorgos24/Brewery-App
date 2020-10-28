@@ -290,12 +290,13 @@ class App extends Component {
   }
 
   removeFavoriteBrew= (brewId) => {
-    const userBrews = this.state.loggedInUser.userBrews;
+    console.log("in here!!!")
+    const userBrews = this.state.loggedInUser.userFavoriteBrews;
     const newBrews1 = userBrews.slice(0, brewId)
     const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
     const both = newBrews1.concat(newBrews2)
     const user = this.state.loggedInUser
-    user.userBrews = both
+    user.userFavoriteBrews = both
     console.log(newBrews1)
     this.setState({
       loggedInUser: user

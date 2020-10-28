@@ -7,6 +7,8 @@ import ProfileBeersContainer from "./ProfileBeersContainer";
 import FavoriteBeersList from './FavoriteBeersList';
 import FavoriteBeersContainer from "./FavoriteBeersContainer";
 import BeersTriedContainer from './BeersTriedContainer';
+import FavoriteBrewsContainer from "./FavoriteBrewsContainer";
+import BrewsTriedContainer from './BrewsTriedContainer';
 
 class Profile extends Component {
     constructor(props){
@@ -42,8 +44,27 @@ class Profile extends Component {
                 </nav>
                 <Route path="/profile/breweries"
                     render={ (props) => {
-                        return <ProfileBreweryContainer {...this.props} {...this.state} handleRemove={this.props.handleRemove} /> 
-                }} />
+                        return (
+                            <div>
+                                <ProfileBreweryContainer 
+                                    {...this.props} 
+                                    {...this.state} 
+                                    handleRemove={this.props.handleRemove} 
+                                /> 
+                                <FavoriteBrewsContainer 
+                                    {...this.props} 
+                                    {...this.state}
+                                    handleRemove={this.props.handleRemove}
+                                    addFavoriteBrew = {this.props.addFavoriteBrew}
+                                    removeFavoriteBrew={this.props.removeFavoriteBrew} 
+                                />
+                                <BrewsTriedContainer
+                                    {...this.props}
+                                    {...this.state}
+                                    removeTriedBrew = {this.props.removeTriedBrew}
+                                />
+                            </div>
+                        )}} /> 
                 <Route path="/profile/beers"
                     render={ (props) => {
                         return(                         
