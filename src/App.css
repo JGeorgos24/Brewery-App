@@ -184,3 +184,42 @@ button{
   border-radius: 3px;
   object-fit: cover;
 }
+
+.GamesNav{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px 5px 0px;
+  background-color:white;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+.Game1{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.Game2{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.beerSpinButton{
+  margin: 10px 10px 100px 10px;
+}
+
+.BeerBottle{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 100px;
+  margin: 25px;
+  border-radius: 3px;
+  object-fit: cover;
+}

@@ -1,30 +1,40 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {Route} from 'react-router-dom';
-import Game1 from "./Game1"
+import Game1 from "./Game1";
+import Game2 from "./Game2";
 import BACCalculator from './BACCalculator';
 
 const Games = (props) => {
     return(
         <div className="Games">
-                <Link to="/Games">Drinking Games</Link>
-            <nav>
-                <Link to="/Games/Game1">Game 1</Link> 
+            <nav className="GamesNav">
+                <Link className="LinksInNavBar" to="/Games/Game1">Beat The Gif</Link> 
                 
-                <Link to="/Games/Game2">Game 2</Link>
+                <Link className="LinksInNavBar" to="/Games/Game2">Spin -N- Drink</Link>
 
-                <Link to="/Games/bacCalculator">BAC Calculator</Link>
+                <Link className="LinksInNavBar" to="/Games/bacCalculator">BAC Calculator</Link>
             </nav>
 
             <main>
-            <Route path="/Games/Game1"
+                <Route path="/Games/Game1"
                     render={ (props) => {
                         return <Game1/> 
-                }} />
-            <Route path="/Games/bacCalculator"
+                    }} 
+                />
+
+                <Route path="/Games/Game2"
+                    render={ (props) => {
+                        return <Game2/> 
+                    }} 
+                />
+
+                <Route path="/Games/bacCalculator"
                     render={ (props) => {
                         return <BACCalculator/> 
-                }} />
+                    }} 
+                />
+
             </main>
         </div>
     )
