@@ -47,6 +47,30 @@ class App extends Component {
               state: 'bbbbb'
           }
         ],
+        userFavoriteBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userTriedBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
         userBeers: [
           {
            name: "Bud Light" 
@@ -66,6 +90,17 @@ class App extends Component {
             name: "Coors Light" 
           }  
         ],
+        userTriedBeer: [
+          {
+            name: "Bud Light" 
+           },
+           {
+            name: "Busch Light" 
+           },
+           {
+             name: "Coors Light" 
+           } 
+        ]
       }],
       loggedIn: false,
       flag: false,
@@ -79,6 +114,30 @@ class App extends Component {
         username: "username",
         password: "password",
         userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userFavoriteBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userTriedBrews: [
           {
               name: 'Avendale Beer Company',
               city: 'Birmingham',
@@ -213,6 +272,62 @@ class App extends Component {
         loggedInUser: user
       })
     }
+  }
+
+  addFavoriteBrew = (brewId) => {
+    const user = this.state.loggedInUser
+    for(let i = 0; i < user.userFavoriteBrews.length; i++) {
+      if(user.userFavoriteBrews.includes(this.state.loggedInUser.userBrews[brewId])) {
+        alert('brewery already in favorites list')
+        return
+      } 
+    }
+    user.userFavoriteBrews.push(this.state.loggedInUser.userBrews[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+     this.props.history.push('/profile/breweries')
+  }
+
+  removeFavoriteBrew= (brewId) => {
+    const userBrews = this.state.loggedInUser.userBrews;
+    const newBrews1 = userBrews.slice(0, brewId)
+    const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
+    const both = newBrews1.concat(newBrews2)
+    const user = this.state.loggedInUser
+    user.userBrews = both
+    console.log(newBrews1)
+    this.setState({
+      loggedInUser: user
+    })
+  }
+
+  addTriedBrew = (brewId) => {
+    const user = this.state.loggedInUser
+    for(let i = 0; i < user.userTriedBrews.length; i++) {
+      if(user.userTriedBrews.includes(this.state.loggedInUser.userBrews[brewId])) {
+        alert('Brewery already in tried list')
+        return
+      }
+    }
+    user.userTriedBrews.push(this.state.loggedInUser.userBrews[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+    this.props.history.push('/profile/breweries')
+  }
+
+  removeTriedBrew = (brewId) => {
+    const userTriedBrews = this.state.loggedInUser.userTriedBrews;
+    const newBrews1 = userTriedBrews.slice(0, brewId)
+    const newBrews2 = userTriedBrews.slice(brewId + 1, userTriedBrews.length)
+    const both = newBrews1.concat(newBrews2)
+    const user = this.state.loggedInUser
+    user.userTriedBrews = both
+    // console.log(newBrews1)
+    this.setState({
+      loggedInUser: user
+    })
   }
 
   removeFavoriteBeer= (brewId, flag) => {
@@ -453,6 +568,10 @@ class App extends Component {
                     removeFavoriteBeer={this.removeFavoriteBeer}
                     addTriedBeer = {this.addTriedBeer}
                     removeTriedBeer = {this.removeTriedBeer}
+                    addFavoriteBrew = {this.addFavoriteBrew}
+                    removeFavoriteBrew = {this.removeFavoriteBrew}
+                    addTriedBrew = {this.addTriedBrew}
+                    removeTriedBrew = {this.removeTriedBrew}
                   />
                 }} 
           />
