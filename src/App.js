@@ -8,16 +8,10 @@ import Header from './components/Home/Header';
 import SignUp from './components/Login-SignUp/SignUp';
 import Login from './components/Login-SignUp/Login';
 import Profile from './components/Profile/Profile';
-import Home from './components/Home/Home';
-import BreweryList from './components/Breweries/BreweryList';
-import BreweryNearYou from "./components/Breweries/BreweryNearYou";
 import BreweryContainer from "./components/Breweries/BreweryContainer";
-import ProfileBreweries from './components/Profile/ProfileBreweries';
 import HomePageDisplay from "./components/Home/HomePageDisplay";
 import BeerContainer from "./components/Beers/BeerContainer";
-import BeerList from "./components/Beers/BeerList";
 import beers from "./beers.json";
-import states from './states.json';
 import DrinkingGames from "./components/Games/DrinkingGames";
 
 
@@ -237,7 +231,6 @@ class App extends Component {
         }
       }
       user.userBeers.push(this.state.beers[brewId])
-      console.log(this.state.beers[brewId])
       this.setState({
           loggedInUser: user
       }) 
@@ -252,7 +245,6 @@ class App extends Component {
         }
       }
       user.userBrews.push(this.state.breweries[brewId])
-      console.log(this.state.breweries[brewId])
       this.setState({
           loggedInUser: user
       }) 
@@ -269,7 +261,6 @@ class App extends Component {
       const both = newBeers1.concat(newBeers2)
       const user = this.state.loggedInUser
       user.userBeers = both
-      console.log(newBeers1)
       this.setState({
         loggedInUser: user
       })
@@ -281,7 +272,6 @@ class App extends Component {
       const both = newBrews1.concat(newBrews2)
       const user = this.state.loggedInUser
       user.userBrews = both
-      console.log(newBrews1)
       this.setState({
         loggedInUser: user
       })
@@ -304,14 +294,12 @@ class App extends Component {
   }
 
   removeFavoriteBrew= (brewId) => {
-    console.log("in here!!!")
     const userBrews = this.state.loggedInUser.userFavoriteBrews;
     const newBrews1 = userBrews.slice(0, brewId)
     const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
     const both = newBrews1.concat(newBrews2)
     const user = this.state.loggedInUser
     user.userFavoriteBrews = both
-    console.log(newBrews1)
     this.setState({
       loggedInUser: user
     })
@@ -339,7 +327,6 @@ class App extends Component {
     const both = newBrews1.concat(newBrews2)
     const user = this.state.loggedInUser
     user.userTriedBrews = both
-    // console.log(newBrews1)
     this.setState({
       loggedInUser: user
     })
@@ -353,7 +340,6 @@ class App extends Component {
       const both = newBeers1.concat(newBeers2)
       const user = this.state.loggedInUser
       user.userFavoriteBeers = both
-      console.log(newBeers1)
       this.setState({
         loggedInUser: user
       })
@@ -365,7 +351,6 @@ class App extends Component {
     //   const both = newBrews1.concat(newBrews2)
     //   const user = this.state.loggedInUser
     //   user.userBrews = both
-    //   console.log(newBrews1)
     //   this.setState({
     //     loggedInUser: user
     //   })
@@ -384,21 +369,17 @@ class App extends Component {
     let loggedInUser = this.state.loggedInUser;
     users.push(userInfo);
     loggedInUser.splice(0, 1, userInfo);
-    console.log(loggedInUser);
-    console.log(userInfo);
     this.setState({
       loggedInUser: loggedInUser[0],
       // loggedInUser: users[users.length - 1],
       loggedIn: true
     })
-    console.log(loggedInUser[0]);
     this.props.history.push('/profile');
   }
 
   handleLogin = (e, userInfo) => {
     e.preventDefault();
     const users = this.state.users;
-    console.log(userInfo);
     const filteredUser = users.filter(
       user => {
         return user.username === userInfo.username && user.password === userInfo.password
@@ -416,7 +397,6 @@ class App extends Component {
         error: "Incorrect Credentials"
       })
     }
-    console.log(filteredUser[0]);
   }
 
   handleLogout = (e) => {
@@ -443,7 +423,6 @@ class App extends Component {
   //     }
   //     totalResp = totalResp.concat(resp.data);
   //   }
-  //   console.log(totalResp);
   //   this.setState({
   //     breweries: totalResp,
   //     flag: true
@@ -468,7 +447,6 @@ class App extends Component {
   handleUp = (brewId, flag) => {
     const breweries = this.state.breweries;
     // const upvoteState = !this.state.upvoteState
-    console.log(flag)
     if (!flag) {
       breweries[brewId].upvotes ++;
       breweries[brewId].upvoteState = !flag
@@ -500,7 +478,6 @@ class App extends Component {
   handleUpBeer = (brewId, flag) => {
     const beers = this.state.beers;
     // const upvoteState = !this.state.upvoteState
-    console.log(flag)
     if (!flag) {
       beers[brewId].upvotes ++;
       beers[brewId].upvoteState = !flag
@@ -552,7 +529,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="App">
         <Header {...this.state} handleLogout={this.handleLogout}/>
