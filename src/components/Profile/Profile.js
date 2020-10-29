@@ -47,7 +47,7 @@ class Profile extends Component {
                 <Route path="/profile/breweries"
                     render={ (props) => {
                         return (
-                            <div>
+                            <div className='profileContainers'>
                                 <ProfileBreweryContainer 
                                     {...this.props} 
                                     {...this.state} 
@@ -70,7 +70,7 @@ class Profile extends Component {
                 <Route path="/profile/beers"
                     render={ (props) => {
                         return(                         
-                            <div>
+                            <div className='profileContainers'>
                                 <ProfileBeersContainer 
                                     {...this.props} 
                                     {...this.state} 

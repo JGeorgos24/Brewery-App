@@ -4,7 +4,7 @@ import ProfileBeers from './ProfileBeers';
 const ProfileBeersContainer = (props) => {
 
     return(
-        <div>
+        <div className='profileBeersContainer'>
             <h1>My Beer List</h1>
             {props.loggedInUser.userBeers.map((beer, id) => {
                 return (<ProfileBeers 

@@ -399,7 +399,7 @@ button{
 
 .bubbles {
   background-image: url("https://thumbs.gfycat.com/CornyColdGoldfinch-size_restricted.gif");
-  height: 100vh;
+  /* height: 100vh; */
   /* width: 100vw; */
   /* object-fit:cover; */
   background-repeat: no-repeat;
@@ -416,4 +416,38 @@ button{
 .addBeer:hover {
   background-color: lightgray;
   color: black;
+}
+
+.profileContainers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.profileBeersContainer, .favoriteBeersContainer, .beersTriedContainer {
+  border: 3px solid white;
+  /* width: 300px; */
+  width: 25vw;
+  margin: 10px;
+  background: rgba(0, 0, 0, 0.384);
+  padding: 10px;
+  text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .profileContainers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .profileBeersContainer, .favoriteBeersContainer, .beersTriedContainer {
+    border: 3px solid white;
+    /* width: 300px; */
+    width: 80vw;
+    margin: 10px;
+    background: rgba(0, 0, 0, 0.384);
+    padding: 10px;
+    text-align: center;
+  }
 }

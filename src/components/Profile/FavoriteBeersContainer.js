@@ -5,7 +5,7 @@ import FavoriteBeersList from "./FavoriteBeersList";
 const FavoriteBeersContainer=(props) =>{
 
     return(
-        <div>
+        <div className='favoriteBeersContainer'>
             <h1>Favorite Beers List</h1>
                 {props.loggedInUser.userFavoriteBeers.map((beer, id) => {
             return (<FavoriteBeersList

@@ -101,81 +101,81 @@ class App extends Component {
       flag: false,
       error: "",
       errorAddBeer: "",
-      loggedInUser:[{}],
+      // loggedInUser:[{}],
       upvoteState: false,
       downvoteState: false,
-      // loggedInUser: {
-      //   name: "Random User",
-      //   age: 0,
-      //   username: "username",
-      //   password: "password",
-      //   userBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userFavoriteBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userTriedBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userBeers: [
-      //     {
-      //       name: "Bud Light" 
-      //      },
-      //      {
-      //       name: "Busch Light" 
-      //      } 
-      //   ],
-      //   userFavoriteBeers: [
-      //     {
-      //      name: "Bud Light" 
-      //     },
-      //     {
-      //      name: "Busch Light" 
-      //     },
-      //     {
-      //       name: "Coors Light" 
-      //     }  
-      //   ],
-      //   userTriedBeer: [
-      //     {
-      //       name: "Bud Light" 
-      //      },
-      //      {
-      //       name: "Busch Light" 
-      //      },
-      //      {
-      //        name: "Coors Light" 
-      //      } 
-      //   ]
-      // }
+      loggedInUser: {
+        name: "Random User",
+        age: 0,
+        username: "username",
+        password: "password",
+        userBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userFavoriteBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userTriedBrews: [
+          {
+              name: 'Avendale Beer Company',
+              city: 'Birmingham',
+              state: 'Alabama'
+          },
+          {
+              name: 'bbbb',
+              city: 'bbbbb',
+              state: 'bbbbb'
+          }
+        ],
+        userBeers: [
+          {
+            name: "Bud Light" 
+           },
+           {
+            name: "Busch Light" 
+           } 
+        ],
+        userFavoriteBeers: [
+          {
+           name: "Bud Light" 
+          },
+          {
+           name: "Busch Light" 
+          },
+          {
+            name: "Coors Light" 
+          }  
+        ],
+        userTriedBeer: [
+          {
+            name: "Bud Light" 
+           },
+           {
+            name: "Busch Light" 
+           },
+           {
+             name: "Coors Light" 
+           } 
+        ]
+      }
     }
   }
 
