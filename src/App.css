@@ -75,16 +75,18 @@ button{
 
 .LogIn{
   display: flex;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .SignUp{
   display: flex;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   flex-direction: column;
+  height: 100vh;
 }
 
 .HomePageDisplay{
@@ -464,7 +466,7 @@ button{
 
 .footer {
   background:  rgba(0, 0, 0, 0.75);
-  position: fixed;
+  position: relative;
   bottom: 0;
   height: 75px;
   width: 100%;
