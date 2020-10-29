@@ -193,6 +193,7 @@ button{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   margin: 5px;
   border: 2px solid white;
   background-color: gray;
@@ -403,4 +404,11 @@ button{
   /* object-fit:cover; */
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.addBeer {
+  height: 30px;
+  width: 150px;
+  border-radius: 5px;
+  margin-right: 15px;
 }
