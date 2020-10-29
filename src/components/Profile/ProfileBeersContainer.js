@@ -2,8 +2,7 @@ import React from'react';
 import ProfileBeers from './ProfileBeers';
 
 const ProfileBeersContainer = (props) => {
-    console.log(props)
-    console.log(props.loggedInUser.userBeers)
+
     return(
         <div>
             <h1>My Beer List</h1>

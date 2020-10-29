@@ -1,9 +1,7 @@
-import React, {Component} from 'react';
-import ProfileBreweries from "./ProfileBreweries";
+import React from 'react';
 import FavoriteBrewsList from "./FavoriteBrewsList";
 
 const FavoriteBrewsContainer=(props) =>{
-    console.log(props)
 
     return(
         <div>

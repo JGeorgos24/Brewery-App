@@ -3,7 +3,6 @@ import ProfileBeers from "./ProfileBeers";
 import FavoriteBeersList from "./FavoriteBeersList";
 
 const FavoriteBeersContainer=(props) =>{
-    console.log(props)
 
     return(
         <div>

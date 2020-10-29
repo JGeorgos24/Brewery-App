@@ -16,7 +16,6 @@ class ProfileBreweries extends Component {
     }
 
     render() {
-        console.log(this.props.brews.name)
         return(
             <div>
                 

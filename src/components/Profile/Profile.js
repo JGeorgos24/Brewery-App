@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import ProfileBreweries from './ProfileBreweries';
 import {Route} from 'react-router-dom';
 import ProfileBreweryContainer from './ProfileBreweryContainer';
 import ProfileBeersContainer from "./ProfileBeersContainer";
@@ -33,7 +32,7 @@ class Profile extends Component {
     
 
     render () {
-        console.log(this.props)
+
         return(
             <div>
                 <h1>Hello {this.props.loggedInUser.name}</h1>

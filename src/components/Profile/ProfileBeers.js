@@ -9,7 +9,6 @@ class ProfileBeers extends Component {
     }
 
     render() {
-        // console.log(this.props.beer)
         return(
             <div>
                 <h2>{this.props.beer.name}</h2>
