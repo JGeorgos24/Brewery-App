@@ -30,7 +30,6 @@ class BreweryContainer extends Component{
    
 
     render() {
-    console.log(this.props.flag)
         return(
             <div className="BreweryContainer"> 
                 <div className="BreweryListHeader">

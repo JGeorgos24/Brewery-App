@@ -22,7 +22,6 @@ class BreweryNearYou extends Component{
     // }
 
     render(){
-        // console.log(this.props.breweries);
         return(
             <div>
                 <h1> Breweries Near You</h1>
