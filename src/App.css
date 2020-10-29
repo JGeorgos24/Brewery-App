@@ -106,7 +106,8 @@ button{
 .BreweriesList{
   display:flex;
   align-items: center;
-  justify-items: center;
+  /* justify-items: center; */
+  justify-content: center;
   flex-direction: column;
   width: 300px;
   height: 300px;
@@ -332,4 +333,20 @@ button{
 #eighth {
   background-color: lime;
   transform: skewY(60deg);
+}
+
+.vote {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.small {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.upvote {
+  margin: 10px;
 }
