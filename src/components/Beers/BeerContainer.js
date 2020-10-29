@@ -40,6 +40,7 @@ class BeerContainer extends Component{
                         handleAdd={this.props.handleAdd} 
                         key={id} 
                         beerId={id} 
+                        loggedIn={this.props.loggedIn}
                         handleUpBeer = {this.props.handleUpBeer} 
                         handleDownBeer = {this.props.handleDownBeer}
                         upvoteState = {this.props.upvoteState}

@@ -57,6 +57,7 @@ class BreweryContainer extends Component{
                                 breweries={breweries} 
                                 handleAdd={this.props.handleAdd} 
                                 brewId={id} 
+                                loggedIn={this.props.loggedIn}
                                 handleUp = {this.props.handleUp} 
                                 handleDown = {this.props.handleDown}
                                 upvoteState = {this.props.upvoteState}

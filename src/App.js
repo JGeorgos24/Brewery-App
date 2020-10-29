@@ -106,81 +106,82 @@ class App extends Component {
       loggedIn: false,
       flag: false,
       error: "",
-      // loggedInUser:[{}],
+      errorAddBeer: "",
+      loggedInUser:[{}],
       upvoteState: false,
       downvoteState: false,
-      loggedInUser: {
-        name: "Random User",
-        age: 0,
-        username: "username",
-        password: "password",
-        userBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userFavoriteBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userTriedBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userBeers: [
-          {
-            name: "Bud Light" 
-           },
-           {
-            name: "Busch Light" 
-           } 
-        ],
-        userFavoriteBeers: [
-          {
-           name: "Bud Light" 
-          },
-          {
-           name: "Busch Light" 
-          },
-          {
-            name: "Coors Light" 
-          }  
-        ],
-        userTriedBeer: [
-          {
-            name: "Bud Light" 
-           },
-           {
-            name: "Busch Light" 
-           },
-           {
-             name: "Coors Light" 
-           } 
-        ]
-      }
+      // loggedInUser: {
+      //   name: "Random User",
+      //   age: 0,
+      //   username: "username",
+      //   password: "password",
+      //   userBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userFavoriteBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userTriedBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userBeers: [
+      //     {
+      //       name: "Bud Light" 
+      //      },
+      //      {
+      //       name: "Busch Light" 
+      //      } 
+      //   ],
+      //   userFavoriteBeers: [
+      //     {
+      //      name: "Bud Light" 
+      //     },
+      //     {
+      //      name: "Busch Light" 
+      //     },
+      //     {
+      //       name: "Coors Light" 
+      //     }  
+      //   ],
+      //   userTriedBeer: [
+      //     {
+      //       name: "Bud Light" 
+      //      },
+      //      {
+      //       name: "Busch Light" 
+      //      },
+      //      {
+      //        name: "Coors Light" 
+      //      } 
+      //   ]
+      // }
     }
   }
 
@@ -221,7 +222,6 @@ class App extends Component {
     const both = newBeers1.concat(newBeers2)
     const user = this.state.loggedInUser
     user.userTriedBeer = both
-    // console.log(newBeers1)
     this.setState({
       loggedInUser: user
     })
@@ -245,7 +245,7 @@ class App extends Component {
     }
     else{
       const user = this.state.loggedInUser
-      for (let i=0; i < user.userBeers.length; i++) {
+      for (let i=0; i < user.userBrews.length; i++) {
         if (user.userBrews.includes(this.state.breweries[brewId])) {
           alert("You've already added this brewery to your list")
           return
@@ -256,7 +256,8 @@ class App extends Component {
       this.setState({
           loggedInUser: user
       }) 
-      this.props.history.push('/profile/breweries');      
+      this.props.history.push('/profile/breweries');   
+        
     }
   }
 
@@ -375,6 +376,10 @@ class App extends Component {
     e.preventDefault();
     userInfo.userBrews = [];
     userInfo.userBeers = [];
+    userInfo.userFavoriteBeers = [];
+    userInfo.userFavoriteBrews = [];
+    userInfo.userTriedBeer = [];
+    userInfo.userTriedBrews = [];
     const users = this.state.users;
     let loggedInUser = this.state.loggedInUser;
     users.push(userInfo);
@@ -386,7 +391,7 @@ class App extends Component {
       // loggedInUser: users[users.length - 1],
       loggedIn: true
     })
-    console.log(this.state.loggedInUser);
+    console.log(loggedInUser[0]);
     this.props.history.push('/profile');
   }
 
@@ -411,6 +416,7 @@ class App extends Component {
         error: "Incorrect Credentials"
       })
     }
+    console.log(filteredUser[0]);
   }
 
   handleLogout = (e) => {
@@ -551,7 +557,7 @@ class App extends Component {
       <div className="App">
         <Header {...this.state} handleLogout={this.handleLogout}/>
         <main>
-          <Route path="/CervezApp"
+          <Route exact path="/"
                     render={ (props) => {
                       return <HomePageDisplay {...this.state} />
                     }} 
@@ -595,6 +601,7 @@ class App extends Component {
               return <BreweryContainer 
                       renderAllBreweries={this.renderAllBreweries} 
                       breweries={this.state.breweries}
+                      loggedIn={this.state.loggedIn}
                       {...this.props} 
                       {...this.state}
                       upvoteState={this.state.upvoteState}
@@ -615,6 +622,7 @@ class App extends Component {
             render={ (props) => {
               return <BeerContainer 
                         beers={this.state.beers}
+                        loggedIn={this.state.loggedIn}
                         handleAdd = {this.handleAdd} 
                         {...this.props} 
                         {...this.state}
