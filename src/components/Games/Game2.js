@@ -80,6 +80,9 @@ class Game2 extends Component{
                 <li class='slice'>
                     <div id="eighth" class='slice-contents'></div>
                 </li>
+                <li class='slice'>
+                    <div id="ninth" class='slice-contents'></div>
+                </li>
                 <RotatingBeer id="test"> 
                     <img className="BeerBottle" src="https://i.imgur.com/mPS5RYj.png" alt="beerbottle"></img>
                 </RotatingBeer>  

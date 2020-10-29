@@ -309,6 +309,9 @@ button{
 .slice:nth-child(8) {
   transform: rotate(315deg) skewY(-60deg);
 }
+.slice:nth-child(9) {
+  transform: rotate(345deg) skewY(-75deg);
+}
 
 .slice-contents {
   position: absolute;
@@ -350,7 +353,10 @@ button{
   background-color: lime;
   transform: skewY(60deg);
 }
-
+#ninth{
+  background-color: white;
+  transform: skewY(75deg);
+}
 .vote {
   display: flex;
   flex-direction: row;
