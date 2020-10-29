@@ -461,3 +461,14 @@ button{
   border-bottom: 1px solid lightgray;
   padding-bottom: 10px;
 }
+
+.footer {
+  background:  rgba(0, 0, 0, 0.75);
+  position: fixed;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

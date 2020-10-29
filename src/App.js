@@ -13,6 +13,7 @@ import HomePageDisplay from "./components/Home/HomePageDisplay";
 import BeerContainer from "./components/Beers/BeerContainer";
 import beers from "./beers.json";
 import DrinkingGames from "./components/Games/DrinkingGames";
+import Footer from './components/Home/Footer'
 
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_state=new_york&per_page=50";
@@ -619,6 +620,7 @@ class App extends Component {
           />
   
         </main>
+        <Footer/>
       </div>
     );
   }
