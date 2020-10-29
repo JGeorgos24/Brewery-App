@@ -37,7 +37,6 @@ class BACCalculator extends Component {
         let volume = (input.weight * 0.45 * 1000);
         let BAC = (grams / (volume * constant)) * 100;
         BAC = BAC.toFixed(3);
-        console.log(BAC);
         this.setState({
             BAC: BAC
         })
