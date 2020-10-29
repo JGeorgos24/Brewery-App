@@ -11,7 +11,7 @@ class BreweryList extends Component{
                 <div className='website'>
                     Website:<a className="BreweryWebsite" href={this.props.breweries.website_url} target="_blank">{this.props.breweries.name}</a>
                     {this.props.loggedIn && 
-                        <button onClick={() => this.props.handleAdd(this.props.brewId, false)}>Add to Favorite Breweries</button>
+                        <button className = 'addBeer' onClick={() => this.props.handleAdd(this.props.brewId, false)}>Add to my Profile</button>
                     }
                 </div>
                 <div className='vote'>

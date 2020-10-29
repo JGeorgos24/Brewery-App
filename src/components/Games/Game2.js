@@ -20,7 +20,6 @@ class Game2 extends Component{
         })
     }
 
-
     render(){
       const { rotation } =  this.state;
 

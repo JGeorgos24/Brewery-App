@@ -124,7 +124,6 @@ button{
 .BreweriesList{
   display:flex;
   align-items: center;
-  /* justify-items: center; */
   justify-content: center;
   flex-direction: column;
   width: 300px;
@@ -267,7 +266,6 @@ button{
 
 .pie {
   position: relative;
-  /* margin: 1em auto; */
   border: 1px solid black;
   padding: 0px;
   width: 25em; 
@@ -439,13 +437,9 @@ button{
 
 .bubbles {
   background-image: url("https://thumbs.gfycat.com/CornyColdGoldfinch-size_restricted.gif");
-  /* height: 100vh;
-  width: 100vw; */
-  /* object-fit:cover; */
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  /* flex-grow: 1; */
   flex-direction: column;
 }
 
@@ -472,7 +466,6 @@ button{
 .profileBeersContainer, .favoriteBeersContainer, .beersTriedContainer,
 .profileBreweryContainer, .favoriteBreweriesContainer, .breweriesTriedContainer {
   border: 3px solid white;
-  /* width: 300px; */
   width: 25vw;
   margin: 10px;
   background: rgba(0, 0, 0, 0.384);
@@ -525,12 +518,14 @@ button{
   .profileBeersContainer, .favoriteBeersContainer, .beersTriedContainer,
   .profileBreweryContainer, .favoriteBreweriesContainer, .breweriesTriedContainer {
     border: 3px solid white;
-    /* width: 300px; */
     width: 80vw;
     margin: 10px;
     background: rgba(0, 0, 0, 0.384);
     padding: 10px;
     text-align: center;
+  }
+  .BeerChugGif {
+    width: 80vw;
   }
 }
 
@@ -566,5 +561,5 @@ footer {
 .BeerChugGif {
   border: 5px solid lightgray;
   border-radius: 5px;
-  height: 400px;
+  width: 500px;
 }
