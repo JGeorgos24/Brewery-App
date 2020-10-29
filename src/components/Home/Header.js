@@ -12,13 +12,11 @@ function Header(props) {
                         {!props.loggedIn && <Link className="SignUp-LogIn userOptions" to="/login">Login</Link>}
                         {props.loggedIn && <button className="logoutButton userOptions" onClick={(e) => props.handleLogout(e) }>Logout</button>}
                     </nav> 
-                
             </header> 
             <nav>
                 <Home {...props}/>    
             </nav>           
         </div>
-
     )
 }
 

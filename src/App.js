@@ -106,121 +106,59 @@ class App extends Component {
       loggedInUser:[{}],
       upvoteState: false,
       downvoteState: false,
-      // loggedInUser: {
-      //   name: "Random User",
-      //   age: 0,
-      //   username: "username",
-      //   password: "password",
-      //   userBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userFavoriteBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userTriedBrews: [
-      //     {
-      //         name: 'Avendale Beer Company',
-      //         city: 'Birmingham',
-      //         state: 'Alabama'
-      //     },
-      //     {
-      //         name: 'bbbb',
-      //         city: 'bbbbb',
-      //         state: 'bbbbb'
-      //     }
-      //   ],
-      //   userBeers: [
-      //     {
-      //       name: "Bud Light" 
-      //      },
-      //      {
-      //       name: "Busch Light" 
-      //      } 
-      //   ],
-      //   userFavoriteBeers: [
-      //     {
-      //      name: "Bud Light" 
-      //     },
-      //     {
-      //      name: "Busch Light" 
-      //     },
-      //     {
-      //       name: "Coors Light" 
-      //     }  
-      //   ],
-      //   userTriedBeer: [
-      //     {
-      //       name: "Bud Light" 
-      //      },
-      //      {
-      //       name: "Busch Light" 
-      //      },
-      //      {
-      //        name: "Coors Light" 
-      //      } 
-      //   ]
-      // }
     }
   }
 
-  addFavoriteBeer = (brewId) => {
-    const user = this.state.loggedInUser
-    for(let i = 0; i < user.userFavoriteBeers.length; i++) {
-      if(user.userFavoriteBeers.includes(this.state.loggedInUser.userBeers[brewId])) {
-        alert('beer already in favorites list')
-        return
-      } 
-    }
-    user.userFavoriteBeers.push(this.state.loggedInUser.userBeers[brewId])
+  handleSignup = (e, userInfo) => {
+    e.preventDefault();
+    userInfo.userBrews = [];
+    userInfo.userBeers = [];
+    userInfo.userFavoriteBeers = [];
+    userInfo.userFavoriteBrews = [];
+    userInfo.userTriedBeer = [];
+    userInfo.userTriedBrews = [];
+    const users = this.state.users;
+    let loggedInUser = this.state.loggedInUser;
+    users.push(userInfo);
+    loggedInUser.splice(0, 1, userInfo);
     this.setState({
-      loggedInUser: user
+      loggedInUser: loggedInUser[0],
+      loggedIn: true
     })
-     this.props.history.push('/profile/beers')
+    this.props.history.push('/profile/beers');
   }
 
-  addTriedBeer = (brewId) => {
-    const user = this.state.loggedInUser
-    for(let i = 0; i < user.userTriedBeer.length; i++) {
-      if(user.userTriedBeer.includes(this.state.loggedInUser.userBeers[brewId])) {
-        alert('beer already in favorites list')
-        return
+  handleLogin = (e, userInfo) => {
+    e.preventDefault();
+    const users = this.state.users;
+    const filteredUser = users.filter(
+      user => {
+        return user.username === userInfo.username && user.password === userInfo.password
       }
+    )
+    if(filteredUser.length > 0) {
+      this.setState({
+        loggedIn: true,
+        error: "",
+        loggedInUser: filteredUser[0]
+      })
+      this.props.history.push('/profile/beers');
+    } else {
+      this.setState({
+        error: "Incorrect Credentials"
+      })
     }
-    user.userTriedBeer.push(this.state.loggedInUser.userBeers[brewId])
-    this.setState({
-      loggedInUser: user
-    })
-    this.props.history.push('/profile/beers')
   }
 
-  removeTriedBeer = (brewId) => {
-    const userTriedBeer = this.state.loggedInUser.userTriedBeer;
-    const newBeers1 = userTriedBeer.slice(0, brewId)
-    const newBeers2 = userTriedBeer.slice(brewId + 1, userTriedBeer.length)
-    const both = newBeers1.concat(newBeers2)
-    const user = this.state.loggedInUser
-    user.userTriedBeer = both
+  handleLogout = (e) => {
+    e.preventDefault();
+    let loggedInUser = this.state.loggedInUser
+    loggedInUser=[{}];
     this.setState({
-      loggedInUser: user
+      loggedIn: false,
+      loggedInUser
     })
+    this.props.history.push('/')
   }
 
   handleAdd = (brewId, flag) => {
@@ -250,8 +188,7 @@ class App extends Component {
       this.setState({
           loggedInUser: user
       }) 
-      this.props.history.push('/profile/breweries');   
-        
+      this.props.history.push('/profile/breweries');    
     }
   }
 
@@ -278,6 +215,62 @@ class App extends Component {
         loggedInUser: user
       })
     }
+  }
+
+  addFavoriteBeer = (brewId) => {
+    const user = this.state.loggedInUser
+    for(let i = 0; i < user.userFavoriteBeers.length; i++) {
+      if(user.userFavoriteBeers.includes(this.state.loggedInUser.userBeers[brewId])) {
+        alert('beer already in favorites list')
+        return
+      } 
+    }
+    user.userFavoriteBeers.push(this.state.loggedInUser.userBeers[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+     this.props.history.push('/profile/beers')
+  }
+
+  removeFavoriteBeer= (brewId, flag) => {
+    if(flag){
+      const userFavoriteBeers = this.state.loggedInUser.userFavoriteBeers;
+      const newBeers1 = userFavoriteBeers.slice(0, brewId)
+      const newBeers2 = userFavoriteBeers.slice(brewId + 1, userFavoriteBeers.length)
+      const both = newBeers1.concat(newBeers2)
+      const user = this.state.loggedInUser
+      user.userFavoriteBeers = both
+      this.setState({
+        loggedInUser: user
+      })
+    }
+  }
+
+  addTriedBeer = (brewId) => {
+    const user = this.state.loggedInUser
+    for(let i = 0; i < user.userTriedBeer.length; i++) {
+      if(user.userTriedBeer.includes(this.state.loggedInUser.userBeers[brewId])) {
+        alert('beer already in favorites list')
+        return
+      }
+    }
+    user.userTriedBeer.push(this.state.loggedInUser.userBeers[brewId])
+    this.setState({
+      loggedInUser: user
+    })
+    this.props.history.push('/profile/beers')
+  }
+
+  removeTriedBeer = (brewId) => {
+    const userTriedBeer = this.state.loggedInUser.userTriedBeer;
+    const newBeers1 = userTriedBeer.slice(0, brewId)
+    const newBeers2 = userTriedBeer.slice(brewId + 1, userTriedBeer.length)
+    const both = newBeers1.concat(newBeers2)
+    const user = this.state.loggedInUser
+    user.userTriedBeer = both
+    this.setState({
+      loggedInUser: user
+    })
   }
 
   addFavoriteBrew = (brewId) => {
@@ -334,183 +327,112 @@ class App extends Component {
     })
   }
 
-  removeFavoriteBeer= (brewId, flag) => {
-    if(flag){
-      const userFavoriteBeers = this.state.loggedInUser.userFavoriteBeers;
-      const newBeers1 = userFavoriteBeers.slice(0, brewId)
-      const newBeers2 = userFavoriteBeers.slice(brewId + 1, userFavoriteBeers.length)
-      const both = newBeers1.concat(newBeers2)
-      const user = this.state.loggedInUser
-      user.userFavoriteBeers = both
-      this.setState({
-        loggedInUser: user
-      })
-    }
-    // else{
-    //   const userBrews = this.state.loggedInUser.userBrews;
-    //   const newBrews1 = userBrews.slice(0, brewId)
-    //   const newBrews2 = userBrews.slice(brewId + 1, userBrews.length)
-    //   const both = newBrews1.concat(newBrews2)
-    //   const user = this.state.loggedInUser
-    //   user.userBrews = both
-    //   this.setState({
-    //     loggedInUser: user
-    //   })
-    // }
-  }
-
-  handleSignup = (e, userInfo) => {
-    e.preventDefault();
-    userInfo.userBrews = [];
-    userInfo.userBeers = [];
-    userInfo.userFavoriteBeers = [];
-    userInfo.userFavoriteBrews = [];
-    userInfo.userTriedBeer = [];
-    userInfo.userTriedBrews = [];
-    const users = this.state.users;
-    let loggedInUser = this.state.loggedInUser;
-    users.push(userInfo);
-    loggedInUser.splice(0, 1, userInfo);
-    this.setState({
-      loggedInUser: loggedInUser[0],
-      // loggedInUser: users[users.length - 1],
-      loggedIn: true
-    })
-    this.props.history.push('/profile/beers');
-  }
-
-  handleLogin = (e, userInfo) => {
-    e.preventDefault();
-    const users = this.state.users;
-    const filteredUser = users.filter(
-      user => {
-        return user.username === userInfo.username && user.password === userInfo.password
-      }
-    )
-    if(filteredUser.length > 0) {
-      this.setState({
-        loggedIn: true,
-        error: "",
-        loggedInUser: filteredUser[0]
-      })
-      this.props.history.push('/profile/beers');
-    } else {
-      this.setState({
-        error: "Incorrect Credentials"
-      })
-    }
-  }
-
-  handleLogout = (e) => {
-    e.preventDefault();
-    let loggedInUser = this.state.loggedInUser
-    loggedInUser=[{}];
-    this.setState({
-      loggedIn: false,
-      loggedInUser
-    })
-    this.props.history.push('/')
-  }
-
-  // async renderAllBreweries() {
-  //   let resp;
-  //   let totalResp = [];
-  //   for(let i=0; i < states.length; i++) {
-  //     resp = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${states[i]}&per_page=50`);
-  //     for(let i=0; i < resp.data.length; i++) {
-  //       let upvote = Math.floor(Math.random() * 100);
-  //       resp.data[i].upvotes = upvote;
-  //       resp.data[i].upvoteState = false;
-  //       resp.data[i].downvoteState = false;
-  //     }
-  //     totalResp = totalResp.concat(resp.data);
-  //   }
-  //   this.setState({
-  //     breweries: totalResp,
-  //     flag: true
-  //   })
-  // }
-
-  async renderAllBreweries() {
-    const resp = await axios.get(AllBreweriesURL);
-    for(let i=0; i < resp.data.length; i++) {
-      let upvote = Math.floor(Math.random() * 100);
-      resp.data[i].upvotes = upvote;
-      resp.data[i].upvoteState = false;
-      resp.data[i].downvoteState = false;
-    }
-    this.setState({
-      breweries: resp.data,
-      flag: true
-    })
-  }
-    
-
   handleUp = (brewId, flag) => {
     const breweries = this.state.breweries;
-    // const upvoteState = !this.state.upvoteState
     if (!flag) {
       breweries[brewId].upvotes ++;
       breweries[brewId].upvoteState = !flag
-    this.setState({
-      breweries
-    })} else {
+      this.setState({
+        breweries
+      })
+    } else {
       breweries[brewId].upvotes --;
       breweries[brewId].upvoteState = !flag
-    this.setState({
-      breweries
-    })}
+      this.setState({
+        breweries
+      })
     }
-    
+  }
+  
   handleDown = (brewId, flag) => {
     const breweries = this.state.breweries;
     if (!flag) {
       breweries[brewId].upvotes --;
       breweries[brewId].downvoteState = !flag
-    this.setState({
-      breweries
-    })} else {
+      this.setState({
+        breweries
+      })
+    } else {
       breweries[brewId].upvotes ++;
       breweries[brewId].downvoteState = !flag
-    this.setState({
-      breweries
-    })}
+      this.setState({
+        breweries
+      })
+    }
   }
 
   handleUpBeer = (brewId, flag) => {
     const beers = this.state.beers;
-    // const upvoteState = !this.state.upvoteState
     if (!flag) {
       beers[brewId].upvotes ++;
       beers[brewId].upvoteState = !flag
-    this.setState({
-      beers
-    })} else {
+      this.setState({
+        beers
+      })
+    } else {
       beers[brewId].upvotes --;
       beers[brewId].upvoteState = !flag
-    this.setState({
-      beers
-    })}
+      this.setState({
+        beers
+      })
     }
+  }
     
   handleDownBeer = (brewId, flag) => {
     const beers = this.state.beers;
     if (!flag) {
       beers[brewId].upvotes --;
       beers[brewId].downvoteState = !flag
-    this.setState({
-      beers
-    })} else {
+      this.setState({
+        beers
+      })
+    } else {
       beers[brewId].upvotes ++;
       beers[brewId].downvoteState = !flag
-    this.setState({
-      beers
-    })}
+      this.setState({
+        beers
+      })
+    }
   }
 
+  async renderAllBreweries() {
+    let resp;
+    let totalResp = [];
+    for(let i=0; i < states.length; i++) {
+      resp = await axios.get(`https://api.openbrewerydb.org/breweries?by_state=${states[i]}&per_page=50`);
+      for(let i=0; i < resp.data.length; i++) {
+        let upvote = Math.floor(Math.random() * 100);
+        resp.data[i].upvotes = upvote;
+        resp.data[i].upvoteState = false;
+        resp.data[i].downvoteState = false;
+      }
+      totalResp = totalResp.concat(resp.data);
+    }
+    this.setState({
+      breweries: totalResp,
+      flag: true
+    })
+  }
+
+  // ABOVE ASYNC FUNCTION RUNS SLIGHTLY SLOWER, THIS IS KEPT AS FAILSAFE
+
+  // async renderAllBreweries() {
+  //   const resp = await axios.get(AllBreweriesURL);
+  //   for(let i=0; i < resp.data.length; i++) {
+  //     let upvote = Math.floor(Math.random() * 100);
+  //     resp.data[i].upvotes = upvote;
+  //     resp.data[i].upvoteState = false;
+  //     resp.data[i].downvoteState = false;
+  //   }
+  //   this.setState({
+  //     breweries: resp.data,
+  //     flag: true
+  //   })
+  // }
+
   renderAllBeers() {   
-     const beerList = beers;    
-     const beerArray = [];    
+    const beerList = beers;    
+    const beerArray = [];    
     for(let i=0; i < beerList.length; i++) {      
       const beerObject = {};      
       let upvote = Math.floor(Math.random() * 100);      
@@ -520,9 +442,9 @@ class App extends Component {
       beerObject.downvoteState = false;      
       beerArray.push(beerObject)    
     }    
-      this.setState({      
-        beers: beerArray    
-      })  
+    this.setState({      
+      beers: beerArray    
+    })  
   }
 
   componentDidMount() {
@@ -540,7 +462,6 @@ class App extends Component {
                       return <HomePageDisplay {...this.state} />
                     }} 
           />
-
           <Route path="/signup" 
                  render={ (props) => {
                    return <SignUp 
@@ -548,7 +469,6 @@ class App extends Component {
                             {...this.state} />
                  }}
           />
-
           <Route path="/login" 
                  render={ (props) => {
                    return <Login 
@@ -556,7 +476,6 @@ class App extends Component {
                             {...this.state} />
                  }} 
           />
-
           <Route path="/profile"
                 render={ (props) => {
                   return <Profile 
@@ -573,7 +492,6 @@ class App extends Component {
                   />
                 }} 
           />
-
           <Route path="/BreweryList"
             render={ (props) => {
               return <BreweryContainer 
@@ -589,13 +507,6 @@ class App extends Component {
                       handleDown = {this.handleDown}/> 
             }} 
           />
-
-          <Route path="/BreweryNearYou"
-            render={ (props) => {
-              return <BreweryContainer {...this.props} {...this.state}  /> 
-            }} 
-          />
-
           <Route path="/BeerList"
             render={ (props) => {
               return <BeerContainer 
@@ -609,7 +520,6 @@ class App extends Component {
                       /> 
             }} 
           />
-
           <Route path="/Games"
             render={ (props) => {
               return <DrinkingGames
@@ -619,7 +529,6 @@ class App extends Component {
                       /> 
             }} 
           />
-  
         </main>
         <footer>
           <Footer/>

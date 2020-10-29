@@ -2,7 +2,6 @@ import React from 'react';
 import FavoriteBrewsList from "./FavoriteBrewsList";
 
 const FavoriteBrewsContainer=(props) =>{
-
     return(
         <div className='favoriteBreweriesContainer'>
             <h1 className='bottomBorder'>Favorite Breweries List</h1>
@@ -18,7 +17,6 @@ const FavoriteBrewsContainer=(props) =>{
 
         </div>
     )
-    
 }
 
 export default FavoriteBrewsContainer;

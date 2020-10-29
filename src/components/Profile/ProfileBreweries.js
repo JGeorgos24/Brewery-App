@@ -1,20 +1,6 @@
 import React, {Component} from 'react';
 
 class ProfileBreweries extends Component {
-    constructor(props){
-        super(props);
-
-        // this.state={
-        //     userBrews: [
-        //         {
-        //             name: 'Avendale Beer Company',
-        //             city: 'Bromingham',
-        //             state: 'Alabama'
-        //         }
-            // ],
-        // }
-    }
-
     render() {
         return(
         <div className='bottomBorder'>

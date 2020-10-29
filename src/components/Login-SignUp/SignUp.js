@@ -34,7 +34,6 @@ class SignUp extends Component {
                         type="number"
                         name="age"
                         placeholder="Better be over 21"
-                        // value={this.state.age}
                         onChange={this.updateForm}
                     />
                     <input
@@ -56,7 +55,6 @@ class SignUp extends Component {
             </div>
         )
     }
-    
 }
 
 export default SignUp;

@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import BeerList from "./BeerList";
 
-
 class BeerContainer extends Component{
     constructor(props) {
         super(props);
@@ -13,7 +12,6 @@ class BeerContainer extends Component{
 
     onChange = (event) => {
         event.preventDefault();
- 
         this.setState({
             beer: event.target.value.toLowerCase()
         })
@@ -51,9 +49,7 @@ class BeerContainer extends Component{
                 </div>
                 :
                 <div></div>
-            }
-               
-               
+            } 
             </div>
         )
     }

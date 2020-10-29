@@ -3,7 +3,6 @@ import ProfileBeers from "./ProfileBeers";
 import FavoriteBeersList from "./FavoriteBeersList";
 
 const FavoriteBeersContainer=(props) =>{
-
     return(
         <div className='favoriteBeersContainer'>
             <h1 className='bottomBorder'>Favorite Beers List</h1>
@@ -19,7 +18,6 @@ const FavoriteBeersContainer=(props) =>{
 
         </div>
     )
-    
 }
 
 export default FavoriteBeersContainer;

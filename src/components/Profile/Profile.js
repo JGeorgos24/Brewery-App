@@ -3,36 +3,13 @@ import {Link} from 'react-router-dom';
 import {Route} from 'react-router-dom';
 import ProfileBreweryContainer from './ProfileBreweryContainer';
 import ProfileBeersContainer from "./ProfileBeersContainer";
-import FavoriteBeersList from './FavoriteBeersList';
 import FavoriteBeersContainer from "./FavoriteBeersContainer";
 import BeersTriedContainer from './BeersTriedContainer';
 import FavoriteBrewsContainer from "./FavoriteBrewsContainer";
 import BrewsTriedContainer from './BrewsTriedContainer';
 
-class Profile extends Component {
-    constructor(props){
-        super(props)
-
-        this.state={
-            // userBrews: [
-            //     {
-            //         name: 'Avendale Beer Company',
-            //         city: 'Birmingham',
-            //         state: 'Alabama'
-            //     },
-            //     {
-            //         name: 'bbbb',
-            //         city: 'bbbbb',
-            //         state: 'bbbbb'
-            //     }
-            // ],
-        }
-    }
-
-    
-
+class Profile extends Component { 
     render () {
-
         return(
             <div className="bubbles">
                 <div className="Games">
@@ -66,7 +43,9 @@ class Profile extends Component {
                                     removeTriedBrew = {this.props.removeTriedBrew}
                                 />
                             </div>
-                        )}} /> 
+                        )
+                    }} 
+                /> 
                 <Route path="/profile/beers"
                     render={ (props) => {
                         return(                         
@@ -92,10 +71,9 @@ class Profile extends Component {
                                 />
                             </div>
                         )
-                }} />
-                
-            </div>
-            
+                    }} 
+                />
+            </div> 
         )
     }
 }

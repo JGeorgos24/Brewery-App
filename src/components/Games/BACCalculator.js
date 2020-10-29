@@ -87,17 +87,15 @@ class BACCalculator extends Component {
                         </div>
                     </form>
                 </div>
-                
                 {this.state.BAC > 0 &&
-                    <h3>Your very loosely estimated BAC is {this.state.BAC}</h3>
+                    <h3 className="centerBAC">Your very loosely estimated BAC is {this.state.BAC}</h3>
                 }
                 {this.state.BAC < 0 &&
-                    <h3>The alcohol seems to have left your system</h3>
+                    <h3 className="centerBAC">The alcohol seems to have left your system</h3>
                 }
             </div>
         )
     }
-    
 }
 
 export default BACCalculator;
