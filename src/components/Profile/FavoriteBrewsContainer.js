@@ -5,7 +5,7 @@ const FavoriteBrewsContainer=(props) =>{
 
     return(
         <div className='favoriteBreweriesContainer'>
-            <h1>Favorite Breweries List</h1>
+            <h1 className='bottomBorder'>Favorite Breweries List</h1>
                 {props.loggedInUser.userFavoriteBrews.map((brew, id) => {
             return (<FavoriteBrewsList
                 handleRemove = {props.handleRemove} 
