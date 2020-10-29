@@ -1,6 +1,7 @@
 header {
   display: flex;
   justify-content: space-between;
+  height: 90px;
   background-color: black;
 }
 
@@ -15,6 +16,7 @@ a {
 button{
   margin:5px;
 }
+
 .CervezAppTitle{
   display: flex;
   justify-content: center;
@@ -148,7 +150,13 @@ button{
   flex-direction: column;
   flex-wrap: wrap;
   background-color: black;
+  background-image: url("https://cdn.wallpapersafari.com/88/58/XtOp2Z.jpeg");
   color:white;
+}
+
+.BeerListTitle{
+  font-size: 35px;
+  font-weight: bolder;
 }
 
 .BeerListInContainer{
@@ -158,9 +166,10 @@ button{
   flex-direction: column;
   flex-wrap: wrap;
   font-weight: bold;
-  background-color:black;
+  background-color:rgba(0, 0, 0, 0.747);
   color:white;
-
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .BeersList{
