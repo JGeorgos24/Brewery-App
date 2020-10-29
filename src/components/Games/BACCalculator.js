@@ -44,7 +44,7 @@ class BACCalculator extends Component {
 
     render() {
         return(
-            <div>
+            <div className="bacBorder">
                 <h1 className="calculator">Guess Your BAC</h1>
                 <div className="bacContainer">
                     <form onSubmit={(e) => this.calculateBAC(e, this.state)}>

@@ -258,8 +258,6 @@ button{
   object-fit: cover;
 }
 
-
-
 #test {
   margin-left: 125px;
   margin-top: 130px;
@@ -362,7 +360,7 @@ button{
   transform: skewY(60deg);
 }
 #ninth{
-  background-color: plum;
+  background-color: lightcoral;
   transform: skewY(75deg);
 }
 
@@ -507,8 +505,8 @@ button{
   padding: 0px 2px;
 }
 
-#purple {
-  background-color: plum;
+#red {
+  background-color: lightcoral;
 }
 
 @media only screen and (max-width: 500px) {

@@ -5,7 +5,7 @@ const ProfileBreweryContainer = (props) => {
 
     return(
         <div className='profileBreweryContainer'>
-            <h1 className='bottomBorder'>My Brewery List</h1>
+            <h1 className='bottomBorder'>Breweries I Want to Visit</h1>
             {props.loggedInUser.userBrews.map((brews, id) => {
                 return (<ProfileBreweries 
                             handleRemove = {props.handleRemove} 

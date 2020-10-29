@@ -408,7 +408,7 @@ class App extends Component {
       loggedIn: false,
       loggedInUser
     })
-    this.props.history.push('/CervezApp')
+    this.props.history.push('/')
   }
 
   // async renderAllBreweries() {
