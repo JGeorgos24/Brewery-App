@@ -5,6 +5,17 @@ header {
   background-color: black;
 }
 
+body {
+  background-color: black;
+  color: white;
+}
+
+.space {
+  background-color:white;
+  font-size: 3px;
+  margin: 0px;
+}
+
 input{
   margin:5px;
 }
@@ -45,7 +56,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px 0px 5px 0px;
+  margin: 1px 0px;
   background-color:white;
   border-bottom: 2px solid black;
   border-top: 2px solid black;
@@ -199,7 +210,7 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px 0px 5px 0px;
+  margin: 1px 0px;
   background-color:white;
   border-bottom: 2px solid black;
   border-top: 2px solid black;

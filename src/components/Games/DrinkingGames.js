@@ -15,7 +15,7 @@ const Games = (props) => {
 
                 <Link className="LinksInNavBar" to="/Games/bacCalculator">BAC Calculator</Link>
             </nav>
-
+            <div className="space">space</div>
             <main>
                 <Route path="/Games/Game1"
                     render={ (props) => {

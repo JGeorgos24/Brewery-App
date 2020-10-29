@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 const Home = (props) => {
     return(
         <div>
+            <div className="space">space</div>
             <nav className="LinkNavBar">
                 <Link className="LinksInNavBar" to="/BreweryList">Brewery List</Link>
                 <Link className="LinksInNavBar" to="/BeerList">Beer List</Link>
@@ -11,6 +12,7 @@ const Home = (props) => {
                 <Link className="LinksInNavBar" to="/Games">Drinking Games</Link>
                 {props.loggedIn && <Link className="LinksInNavBar" to="/profile">Your Profile</Link>}
             </nav>
+            <div className="space">space</div>
         </div>
     )
 }
