@@ -13,7 +13,8 @@ import HomePageDisplay from "./components/Home/HomePageDisplay";
 import BeerContainer from "./components/Beers/BeerContainer";
 import beers from "./beers.json";
 import DrinkingGames from "./components/Games/DrinkingGames";
-import Footer from './components/Home/Footer'
+import Footer from './components/Home/Footer';
+import states from './states.json';
 
 
 const AllBreweriesURL = "https://api.openbrewerydb.org/breweries?by_state=new_york&per_page=50";
@@ -33,38 +34,38 @@ class App extends Component {
         password: "password",
         userBrews: [
           {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
+            name: 'Avendale Beer Company',
+            city: 'Birmingham',
+            state: 'Alabama'
           },
           {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
+            name: 'Black Forest Brew Haus',
+            city: 'Farmingdale',
+            state: 'New York'
           }
         ],
         userFavoriteBrews: [
           {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
+            name: 'Avendale Beer Company',
+            city: 'Birmingham',
+            state: 'Alabama'
           },
           {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
+            name: 'Black Forest Brew Haus',
+            city: 'Farmingdale',
+            state: 'New York'
           }
         ],
         userTriedBrews: [
           {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
+            name: 'Avendale Beer Company',
+            city: 'Birmingham',
+            state: 'Alabama'
           },
           {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
+            name: 'Black Forest Brew Haus',
+            city: 'Farmingdale',
+            state: 'New York'
           }
         ],
         userBeers: [
@@ -102,81 +103,81 @@ class App extends Component {
       flag: false,
       error: "",
       errorAddBeer: "",
-      // loggedInUser:[{}],
+      loggedInUser:[{}],
       upvoteState: false,
       downvoteState: false,
-      loggedInUser: {
-        name: "Random User",
-        age: 0,
-        username: "username",
-        password: "password",
-        userBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userFavoriteBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userTriedBrews: [
-          {
-              name: 'Avendale Beer Company',
-              city: 'Birmingham',
-              state: 'Alabama'
-          },
-          {
-              name: 'bbbb',
-              city: 'bbbbb',
-              state: 'bbbbb'
-          }
-        ],
-        userBeers: [
-          {
-            name: "Bud Light" 
-           },
-           {
-            name: "Busch Light" 
-           } 
-        ],
-        userFavoriteBeers: [
-          {
-           name: "Bud Light" 
-          },
-          {
-           name: "Busch Light" 
-          },
-          {
-            name: "Coors Light" 
-          }  
-        ],
-        userTriedBeer: [
-          {
-            name: "Bud Light" 
-           },
-           {
-            name: "Busch Light" 
-           },
-           {
-             name: "Coors Light" 
-           } 
-        ]
-      }
+      // loggedInUser: {
+      //   name: "Random User",
+      //   age: 0,
+      //   username: "username",
+      //   password: "password",
+      //   userBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userFavoriteBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userTriedBrews: [
+      //     {
+      //         name: 'Avendale Beer Company',
+      //         city: 'Birmingham',
+      //         state: 'Alabama'
+      //     },
+      //     {
+      //         name: 'bbbb',
+      //         city: 'bbbbb',
+      //         state: 'bbbbb'
+      //     }
+      //   ],
+      //   userBeers: [
+      //     {
+      //       name: "Bud Light" 
+      //      },
+      //      {
+      //       name: "Busch Light" 
+      //      } 
+      //   ],
+      //   userFavoriteBeers: [
+      //     {
+      //      name: "Bud Light" 
+      //     },
+      //     {
+      //      name: "Busch Light" 
+      //     },
+      //     {
+      //       name: "Coors Light" 
+      //     }  
+      //   ],
+      //   userTriedBeer: [
+      //     {
+      //       name: "Bud Light" 
+      //      },
+      //      {
+      //       name: "Busch Light" 
+      //      },
+      //      {
+      //        name: "Coors Light" 
+      //      } 
+      //   ]
+      // }
     }
   }
 
@@ -375,7 +376,7 @@ class App extends Component {
       // loggedInUser: users[users.length - 1],
       loggedIn: true
     })
-    this.props.history.push('/profile');
+    this.props.history.push('/profile/beers');
   }
 
   handleLogin = (e, userInfo) => {
@@ -392,7 +393,7 @@ class App extends Component {
         error: "",
         loggedInUser: filteredUser[0]
       })
-      this.props.history.push('/profile');
+      this.props.history.push('/profile/beers');
     } else {
       this.setState({
         error: "Incorrect Credentials"
@@ -620,7 +621,9 @@ class App extends Component {
           />
   
         </main>
-        <Footer/>
+        <footer>
+          <Footer/>
+        </footer>
       </div>
     );
   }

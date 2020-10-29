@@ -55,6 +55,7 @@ class BreweryContainer extends Component{
                             <BreweryList 
                                 breweries={breweries} 
                                 handleAdd={this.props.handleAdd} 
+                                key={id}
                                 brewId={id} 
                                 loggedIn={this.props.loggedIn}
                                 handleUp = {this.props.handleUp} 

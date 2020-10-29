@@ -9,8 +9,8 @@ const Home = (props) => {
                 <Link className="LinksInNavBar" to="/BreweryList">Brewery List</Link>
                 <Link className="LinksInNavBar" to="/BeerList">Beer List</Link>
                 <Link className="LinksInNavBar" to="/BreweryNearYou">Breweries Near You</Link>
-                <Link className="LinksInNavBar" to="/Games">Drinking Games</Link>
-                {props.loggedIn && <Link className="LinksInNavBar" to="/profile">Your Profile</Link>}
+                <Link className="LinksInNavBar" to="/Games/bacCalculator">Drinking Games</Link>
+                {props.loggedIn && <Link className="LinksInNavBar" to="/profile/beers">Your Profile</Link>}
             </nav>
             <div className="space">space</div>
         </div>

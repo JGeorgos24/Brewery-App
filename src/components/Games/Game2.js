@@ -51,9 +51,9 @@ class Game2 extends Component{
               <div className="game2container">
                 <div id="blue">You take a drink for 3 seconds</div>
                 <div id="yellow">Pick a friend to take a drink for 3 seconds</div>
-                <div id="red">Entire table takes a drink for 2 seconds</div>
+                <div id="pink">Entire table takes a drink for 2 seconds</div>
                 <div id="green">Everyone but you takes a drink for 2 seconds</div>
-                <div id="purple">Finish your entire drink</div>
+                <div id="red">Finish your entire drink</div>
               </div>
               <button className="beerSpinButton hovereffect" onClick={() => {this.spinBottle()}}>Spin Bottle</button> 
 
