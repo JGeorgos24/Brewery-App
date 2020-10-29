@@ -8,9 +8,9 @@ function Header(props) {
             <header>
                 <Link className="CervezAppTitle" to="/">CervezApp</Link>
                 <nav className="SignUp-LogIn">
-                        {!props.loggedIn && <Link className="SignUp-LogIn" to="/signup">Sign Up</Link>}
-                        {!props.loggedIn && <Link className="SignUp-LogIn" to="/login">Login</Link>}
-                        {props.loggedIn && <button onClick={(e) => props.handleLogout(e) }>Logout</button>}
+                        {!props.loggedIn && <Link className="SignUp-LogIn userOptions" to="/signup">Sign Up</Link>}
+                        {!props.loggedIn && <Link className="SignUp-LogIn userOptions" to="/login">Login</Link>}
+                        {props.loggedIn && <button className="logoutButton" onClick={(e) => props.handleLogout(e) }>Logout</button>}
                     </nav> 
                 
             </header> 

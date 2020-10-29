@@ -35,12 +35,15 @@ class Profile extends Component {
 
         return(
             <div>
-                <h1>Hello {this.props.loggedInUser.name}</h1>
-                <nav>
-                    <Link to="/profile/beers">Beers</Link> 
-                    
-                    <Link to="/profile/breweries">Breweries</Link>
-                </nav>
+                <div className="Games">
+                    <nav className="GamesNav">
+                        <Link className="userOption LinksInNavBar" to="/profile/beers">Your Beers</Link> 
+                            
+                        <Link className="userOption LinksInNavBar" to="/profile/breweries">Your Breweries</Link>
+                    </nav>
+                    <div className="space">space</div>
+                </div>
+                <h1 className="userName">Hello {this.props.loggedInUser.name}</h1>
                 <Route path="/profile/breweries"
                     render={ (props) => {
                         return (
