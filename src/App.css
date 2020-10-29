@@ -242,7 +242,7 @@ button{
 }
 
 .beerSpinButton{
-  margin: 10px 10px 100px 10px;
+  margin: 30px 10px 10px 10px;
 }
 
 .BeerBottle{
@@ -360,9 +360,47 @@ button{
   transform: skewY(60deg);
 }
 #ninth{
-  background-color: white;
+  background-color: plum;
   transform: skewY(75deg);
 }
+
+.calculator {
+  text-align: center;
+}
+
+.bacContainer {
+  display: flex;
+  justify-content: center;
+}
+
+#sex {
+  margin-left: 140px;
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+#weight {
+  margin-left: 113px;
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+#numOfBeers {
+  margin-left: 41px;
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+#hours {
+  margin-left: 5px;
+  margin-bottom: 15px;
+  width: 150px;
+}
+
+#centerSubmit {
+  text-align: center;
+}
+
 .vote {
   display: flex;
   flex-direction: row;
@@ -413,7 +451,7 @@ button{
   margin-right: 15px;
 }
 
-.addBeer:hover {
+.addBeer:hover, .hovereffect:hover {
   background-color: lightgray;
   color: black;
 }
@@ -434,6 +472,38 @@ button{
   background: rgba(0, 0, 0, 0.384);
   padding: 10px;
   text-align: center;
+}
+
+.game2container {
+  border: 2px solid gray;
+  text-align: center;
+  color: black;
+  background-color: white;
+}
+
+.game2margin {
+  margin-top: 5px;
+}
+
+#blue {
+  background-color: lightskyblue;
+}
+
+#yellow {
+  background-color: lemonchiffon;
+}
+
+#pink {
+  background-color: mistyrose;
+}
+
+#green {
+  background-color: lime;
+  padding: 0px 2px;
+}
+
+#purple {
+  background-color: plum;
 }
 
 @media only screen and (max-width: 500px) {

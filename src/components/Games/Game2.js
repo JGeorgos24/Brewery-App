@@ -46,42 +46,49 @@ class Game2 extends Component{
       return(
           <div className="Game2">
               <h1>Spin -N- Drink</h1> 
-              <p>If the tip of the bottle lands pointing towards the direction you are located you must take a drink for 5 seconds.</p>
-
-              <button className="beerSpinButton" onClick={() => {this.spinBottle()}}>Spin</button> 
+              <p className="game2margin">Take turns pressing spin and hope your luck is great!</p>
+              <p className="game2margin">Feel free to assign the colors any reward/punishments you would like! Our suggestions are below.</p>
+              <div className="game2container">
+                <div id="blue">You take a drink for 3 seconds</div>
+                <div id="yellow">Pick a friend to take a drink for 3 seconds</div>
+                <div id="pink">Entire table takes a drink for 2 seconds</div>
+                <div id="green">Everyone but you takes a drink for 2 seconds</div>
+                <div id="purple">Finish your entire drink</div>
+              </div>
+              <button className="beerSpinButton hovereffect" onClick={() => {this.spinBottle()}}>Spin Bottle</button> 
 
             {/* {this.state.spin &&
                 <RotatingBeer > 
                     <img className="BeerBottle" src="https://i.imgur.com/mPS5RYj.png" alt="beerbottle"></img>
                 </RotatingBeer>  
             } */}
-            <ul class='pie'>
-                <li class='slice'>
-                    <div id="first" class='slice-contents'></div>
+            <ul className='pie'>
+                <li className='slice'>
+                    <div id="first" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="second" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="second" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="third" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="third" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="fourth" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="fourth" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="fifth" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="fifth" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="sixth" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="sixth" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="seventh" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="seventh" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="eighth" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="eighth" className='slice-contents'></div>
                 </li>
-                <li class='slice'>
-                    <div id="ninth" class='slice-contents'></div>
+                <li className='slice'>
+                    <div id="ninth" className='slice-contents'></div>
                 </li>
                 <RotatingBeer id="test"> 
                     <img className="BeerBottle" src="https://i.imgur.com/mPS5RYj.png" alt="beerbottle"></img>
