@@ -174,8 +174,8 @@ button{
 .BeerListInContainer{
   display:flex;
   align-items: left;
-  justify-content: left;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
   font-weight: bold;
   background-color:rgba(0, 0, 0, 0.747);
@@ -185,17 +185,22 @@ button{
 }
 
 .BeersList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 5px;
   border: 2px solid white;
   background-color: gray;
   color:white;
+  width: 500px;
 }
 
 .BeerTitle{
   color:white;
   font-size: 20px;
   margin:5px;
-  padding: 0px 2px 0px 2px
+  padding: 0px 2px 0px 2px;
+  width: 50%;
 }
 
 .small {
@@ -360,4 +365,9 @@ button{
 
 .upvote {
   margin: 10px;
+}
+
+.beerVote {
+  display: flex;
+  align-items: center;
 }
