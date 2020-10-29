@@ -50,12 +50,40 @@ class Game2 extends Component{
 
               <button className="beerSpinButton" onClick={() => {this.spinBottle()}}>Spin</button> 
 
-            {this.state.spin &&
+            {/* {this.state.spin &&
                 <RotatingBeer > 
                     <img className="BeerBottle" src="https://i.imgur.com/mPS5RYj.png" alt="beerbottle"></img>
                 </RotatingBeer>  
-            }
-
+            } */}
+            <ul class='pie'>
+                <li class='slice'>
+                    <div id="first" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="second" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="third" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="fourth" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="fifth" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="sixth" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="seventh" class='slice-contents'></div>
+                </li>
+                <li class='slice'>
+                    <div id="eighth" class='slice-contents'></div>
+                </li>
+                <RotatingBeer id="test"> 
+                    <img className="BeerBottle" src="https://i.imgur.com/mPS5RYj.png" alt="beerbottle"></img>
+                </RotatingBeer>  
+            </ul>
           </div>
       ) 
     }
