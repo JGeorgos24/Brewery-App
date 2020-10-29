@@ -44,34 +44,50 @@ class BACCalculator extends Component {
 
     render() {
         return(
-            <div className="Game1">
-                <h1>Guess Your BAC</h1>
-                <form onSubmit={(e) => this.calculateBAC(e, this.state)}>
-                    Sex: <select id="sex" name="sex" onChange={this.onChange}>
-                        <option value="choose sex">Choose Sex</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                    </select>
-                    Weight: <input
-                        type="text"
-                        name = 'weight'
-                        placeholder = 'Your Weight in lbs'
-                        onChange = {this.onChange}
-                    />
-                    Number of Beers: <input
-                        type="text"
-                        name = 'numberOfBeers'
-                        placeholder = 'Assumes 12oz and 5% ABV'
-                        onChange = {this.onChange}
-                    />
-                    Hours since First Beer: <input
-                        type="text"
-                        name = 'hoursSinceStart'
-                        placeholder = 'When did you start?'
-                        onChange = {this.onChange}
-                    />
-                    <input type="submit" value="Guestimate My BAC"/>
-                </form>
+            <div>
+                <h1 className="calculator">Guess Your BAC</h1>
+                <div className="bacContainer">
+                    <form onSubmit={(e) => this.calculateBAC(e, this.state)}>
+                        <div>
+                            Sex: <select id="sex" name="sex" onChange={this.onChange}>
+                                <option value="choose sex">Choose Sex</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div>
+                            Weight: <input 
+                                id="weight"
+                                type="text"
+                                name = 'weight'
+                                placeholder = 'Your Weight in lbs'
+                                onChange = {this.onChange}
+                            />
+                        </div>
+                        <div>
+                            Number of Beers: <input 
+                                id="numOfBeers"
+                                type="text"
+                                name = 'numberOfBeers'
+                                placeholder = 'Assumes 12oz and 5% ABV'
+                                onChange = {this.onChange}
+                            />
+                        </div>
+                        <div>
+                            Hours since First Beer: <input 
+                                id="hours"
+                                type="text"
+                                name = 'hoursSinceStart'
+                                placeholder = 'When did you start?'
+                                onChange = {this.onChange}
+                            />
+                        </div>
+                        <div id="centerSubmit">
+                            <input className="hovereffect" type="submit" value="Guestimate My BAC"/>
+                        </div>
+                    </form>
+                </div>
+                
                 {this.state.BAC > 0 &&
                     <h3>Your very loosely estimated BAC is {this.state.BAC}</h3>
                 }
