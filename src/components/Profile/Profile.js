@@ -34,7 +34,7 @@ class Profile extends Component {
     render () {
 
         return(
-            <div>
+            <div className="bubbles">
                 <div className="Games">
                     <nav className="GamesNav">
                         <Link className="userOption LinksInNavBar" to="/profile/beers">Your Beers</Link> 

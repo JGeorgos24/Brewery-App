@@ -395,3 +395,12 @@ button{
 .userName {
   text-align: center;
 }
+
+.bubbles {
+  background-image: url("https://thumbs.gfycat.com/CornyColdGoldfinch-size_restricted.gif");
+  height: 100vh;
+  /* width: 100vw; */
+  /* object-fit:cover; */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
