@@ -3,7 +3,7 @@ import BrewsTriedList from './BrewsTriedList';
 
 const BrewsTriedContainer = (props) => {
     return(
-        <div className='beersTriedContainer'>
+        <div className='breweriesTriedContainer'>
             <h1>Breweries I've Visited</h1>
             {props.loggedInUser.userTriedBrews.map((brew, index) => {
                 return <BrewsTriedList 
