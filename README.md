@@ -12,7 +12,7 @@ The goal of our app is to create a brewery finder and beer rater for beer lovers
 ## Project Links
 Below are links to navigate to our project repository and deployed website link. 
 - GitHub Repo = [Brewery App Repo](https://github.com/JGeorgos24/Brewery-App)
-- Deployment = [Deployed Brewery App](https://github.com/JGeorgos24/Brewery-App) 
+- Deployment = [CervezApp Link](http://cervezapp.surge.sh/) 
 
 
 ## Wireframes
@@ -64,5 +64,28 @@ Use this section to include a brief code snippet of functionality that we are pr
 
 ```
 Code Snippet
+
+    calculateBAC = (e, input) => {
+        e.preventDefault();
+        let constant = 0;
+        if(input.sex == "male") {
+            constant = 0.68;
+        } else if (input.sex == "female") {
+            constant = 0.55;
+        } else {
+            alert('Need to input a sex');
+            return;
+        }
+        let actualNumOfBeer = input.numberOfBeers - (input.hoursSinceStart / 2);
+        let ounces = (12 * actualNumOfBeer * .05);
+        let millilitres = (ounces * 29.6);
+        let grams = (millilitres * 0.79);
+        let volume = (input.weight * 0.45 * 1000);
+        let BAC = (grams / (volume * constant)) * 100;
+        BAC = BAC.toFixed(3);
+        this.setState({
+            BAC: BAC
+        })
+    }
 
 ```
